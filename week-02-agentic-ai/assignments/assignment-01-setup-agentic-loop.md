@@ -92,7 +92,7 @@ claude
 **Goal:** Get your own copy of the course project onto your machine.
 
 **Steps:**
-1. Go to the course repository link in the Resources section of Lecture 1.5
+1. Go to the course [repository link](https://github.com/pravinmishraaws/Ultimate-Agentic-DevOps-with-Claude-Code) in the Resources section of [Fork the reposiroty](https://www.udemy.com/course/ultimate-agentic-ai-devops-with-claude-code/learn/lecture/54808941#overview). 
 2. Click **Fork → Create Fork**
 3. Clone your fork to your local machine
 4. Open the project in VS Code
