@@ -13,11 +13,11 @@
 
 | | |
 |---|---|
-| **Name** | Pravin Mishra |
-| **LinkedIn** | [pravin-mishra-aws-trainer](https://www.linkedin.com/in/pravin-mishra-aws-trainer/) |
-| **Location** | Helsinki, Finland |
-| **Background** | Cloud, DevOps & AI Consultant |
-| **Goal** | Train 10,000+ DevOps professionals |
+| **Name** | Christian Aryee |
+| **LinkedIn** | [Christian Aryee](https://https://www.linkedin.com/in/caryee/) |
+| **Location** | Accra, Ghana |
+| **Background** | Cloud & DevOps Engineer |
+| **Goal** | Gain Expertise in Devops Tools and Build an Online portfolio |
 
 ---
 
