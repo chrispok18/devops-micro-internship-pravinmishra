@@ -83,7 +83,7 @@ Verify that Claude’s behavior changes after adding `CLAUDE.md` by running a ne
 
 Paste your forked repository URL here:
 
-`__________________________`
+`https://github.com/chrispok18/Ultimate-Agentic-DevOps-with-Claude-Code`
 
 ---
 
