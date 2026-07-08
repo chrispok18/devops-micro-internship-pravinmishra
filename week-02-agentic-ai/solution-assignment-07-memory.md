@@ -20,7 +20,7 @@ Identify where Claude Code stores memory for this project.
 
 #### Screenshot 1 — Memory file path shown by Claude
 
-Add your screenshot here.
+![Screenshot 1 - Memory file path shown by Claude](screenshots/assignment-07-screenshot-01.png)
 
 ---
 
@@ -34,13 +34,14 @@ Store project-specific rules and configurations into Claude’s memory and verif
 
 #### Screenshot 2 — Claude confirming memory was saved
 
-Add your screenshot here.
+![Screenshot 2 - Claude confirming memory was saved](screenshots/assignment-07-screenshot-02.png)
+
 
 ---
 
 #### Screenshot 3 — MEMORY.md file showing saved content
 
-Add your screenshot here.
+![Screenshot 3 - MEMORY.md file showing saved content](screenshots/assignment-07-screenshot-03.png)
 
 ---
 
@@ -54,7 +55,8 @@ Terminate the current Claude Code session and restart it to ensure memory is the
 
 #### Screenshot 4 — Fresh Claude Code session after restart
 
-Add your screenshot here.
+![Screenshot 4 - Fresh Claude Code session after restart](screenshots/assignment-07-screenshot-04.png)
+
 
 ---
 
@@ -68,13 +70,15 @@ Verify that Claude correctly recalls stored memory after a full session reset.
 
 #### Screenshot 5 — Claude recalling hero section colors
 
-Add your screenshot here.
+![Screenshot 5 - Claude recalling hero section colors](screenshots/assignment-07-screenshot-05.png)
+
 
 ---
 
 #### Screenshot 6 — Claude refusing JavaScript request based on memory rule
 
-Add your screenshot here.
+![Screenshot 6 - Claude refusing JavaScript request based on memory rule](screenshots/assignment-07-screenshot-06.png)
+
 
 ---
 
@@ -95,15 +99,27 @@ Paste your forked repository URL here:
 
 ---
 
+## LinkedIn Requirement
+
+Create a LinkedIn post including:
+- Screenshot 5 or 6 — Claude recalling information in a brand new session
+- Caption: "My AI agent just remembered a project decision from a previous session — without me repeating it. This is what professional agentic DevOps looks like."
+- Tag: #DMIByPravinMishra #AgenticAI #ClaudeCode #DevOps
+
+**Submit:**
+- LinkedIn post URL : https://www.linkedin.com/posts/caryee_dmibypravinmishra-agenticai-claudecode-share-7480638969924341760-VfcM/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACP6ElcBF7-kOglrea_3V5oUhVp4NSh-Trc
+- Screenshot of the post
+![Screenshot 7 - Caption: "My AI agent just remembered a project decision from a previous session — without me repeating it. This is what professional agentic DevOps looks like](screenshots/assignment-07-screenshot-07.png)
+
 # Completion Checklist
 
-- [ ] Memory file path identified (Screenshot 1)
-- [ ] Memory successfully saved via prompt (Screenshot 2)
-- [ ] `MEMORY.md` shows stored content (Screenshot 3)
-- [ ] Fresh session opened after full restart (Screenshot 4)
-- [ ] Claude recalled hero colors correctly (Screenshot 5)
-- [ ] Claude refused JavaScript request based on memory (Screenshot 6)
-- [ ] All screenshots added and committed to GitHub repo
+- [x] Memory file path identified (Screenshot 1)
+- [x] Memory successfully saved via prompt (Screenshot 2)
+- [x] `MEMORY.md` shows stored content (Screenshot 3)
+- [x] Fresh session opened after full restart (Screenshot 4)
+- [x] Claude recalled hero colors correctly (Screenshot 5)
+- [x] Claude refused JavaScript request based on memory (Screenshot 6)
+- [x] All screenshots added and committed to GitHub repo
 
 ---
 
