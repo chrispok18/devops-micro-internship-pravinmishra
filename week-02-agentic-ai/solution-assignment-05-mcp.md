@@ -73,9 +73,9 @@ Verify MCP functionality by retrieving real-time data from your GitHub account u
 
 ### Evidence
 
-#### Screenshot 5 — Claude response showing real GitHub repositories
+#### Screenshot 5 — Claude response showing GitHub MCP retrieving README.md
 
-![Screenshot 5 - Claude response showing real GitHub repositories](screenshots/assignment-05-screenshot-05.png)
+![Screenshot 5 - Claude's response showing the GitHub MCP tool call and the retrieved README.md](screenshots/assignment-05-screenshot-05.png)
 
 ---
 
