@@ -20,7 +20,7 @@ Create a team-level `settings.json` file with allow and deny rules for safe comm
 
 #### Screenshot 1 — settings.json permissions configuration
 
-Add your screenshot here.
+![Screenshot 1 - settings.json permissions configuration](screenshots/assignment-06-screenshot-01.png)
 
 ---
 
@@ -34,8 +34,7 @@ Add a hook that intercepts user prompts before Claude starts execution and block
 
 #### Screenshot 2 — settings.json showing UserPromptSubmit hook
 
-Add your screenshot here.
-
+![Screenshot 2 - settings.json showing UserPromptSubmit hook](screenshots/assignment-06-screenshot-02.png)
 ---
 
 # Task 3 — Add the PreToolUse Hook
@@ -48,7 +47,7 @@ Extend `settings.json` with a PreToolUse hook that blocks dangerous Bash command
 
 #### Screenshot 3 — full settings.json with permissions and hooks
 
-Add your screenshot here.
+![Screenshot 3 - full settings.json with permissions and hooks](screenshots/assignment-06-screenshot-03.png)
 
 ---
 
@@ -62,7 +61,7 @@ Verify that destructive prompts are blocked before Claude begins execution.
 
 #### Screenshot 4 — blocked prompt due to UserPromptSubmit hook
 
-Add your screenshot here.
+![Screenshot 4 - blocked prompt due to UserPromptSubmit hook](screenshots/assignment-06-screenshot-04.png)
 
 ---
 
@@ -76,7 +75,9 @@ Verify that dangerous commands are intercepted before execution by the PreToolUs
 
 #### Screenshot 5 — PreToolUse hook blocking terraform destroy
 
-Add your screenshot here.
+![Screenshot 5 - PreToolUse hook blocking terraform destroy](screenshots/assignment-06-screenshot-05.png)
+![Screenshot 5 - PreToolUse hook blocking terraform destroy](screenshots/assignment-06-screenshot-05b.png)
+
 
 ---
 
@@ -92,19 +93,19 @@ Add your screenshot here.
 
 Paste your forked repository URL here:
 
-`__________________________`
+`https://github.com/chrispok18/Ultimate-Agentic-DevOps-with-Claude-Code`
 
 ---
 
 # Completion Checklist
 
-- [ ] `settings.json` created with permissions block
-- [ ] UserPromptSubmit hook added correctly
-- [ ] PreToolUse hook added correctly
-- [ ] Screenshot 3 shows full hooks + permissions configuration
-- [ ] Prompt-level destructive test was blocked (Screenshot 4)
-- [ ] Command-level `terraform destroy` was blocked (Screenshot 5)
-- [ ] `settings.json` committed and visible in GitHub repo
+- [x] `settings.json` created with permissions block
+- [x] UserPromptSubmit hook added correctly
+- [x] PreToolUse hook added correctly
+- [x] Screenshot 3 shows full hooks + permissions configuration
+- [x] Prompt-level destructive test was blocked (Screenshot 4)
+- [x] Command-level `terraform destroy` was blocked (Screenshot 5)
+- [x] `settings.json` committed and visible in GitHub repo
 
 ---
 
