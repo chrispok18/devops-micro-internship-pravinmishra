@@ -18,7 +18,7 @@ Capture Claude’s response before `CLAUDE.md` exists in the project to establis
 
 ### Evidence
 
-#### Screenshot 1 — Claude response before CLAUDE.md
+#### Screenshot 1 — Claude’s generic response before CLAUDE.md exists (project contains only `index.html`, `style.css`, `images/`, `README.MD`, `privacy.html`, `terms.html`)
 
 ![Screenshot 1 - before CLAUDE.md](screenshots/assignment-02-screenshot-01.png)
 
@@ -32,7 +32,7 @@ Generate an initial `CLAUDE.md` file using the `/init` command and review the au
 
 ### Evidence
 
-#### Screenshot 2 — Auto-generated CLAUDE.md
+#### Screenshot 2 — The auto-generated CLAUDE.md open in VS Code showing its content
 
 ![Screenshot 2 - Auto-generated CLAUDE.md](screenshots/assignment-02-screenshot-02.png)
 ---
@@ -45,7 +45,7 @@ Update the generated `CLAUDE.md` file by adding project-specific instructions ac
 
 ### Evidence
 
-#### Screenshot 3 — Customized CLAUDE.md (all 5 sections visible)
+#### Screenshot 3 — Your customized CLAUDE.md in VS Code showing all 5 sections (scroll to show the full file)
 
 ![Screenshot 3 - Customized CLAUDE.md (all 5 sections visible)](screenshots/assignment-02-screenshot-03.png)
 
@@ -59,13 +59,27 @@ Verify that Claude’s behavior changes after adding `CLAUDE.md` by running a ne
 
 ### Evidence
 
-#### Screenshot 4 — Claude response with project-specific deployment details
+#### Screenshot 4 — Claude's specific, detailed answer after reading CLAUDE.md (Claude mentioning S3, CloudFront and Terraform)
 
 ![Screenshot 4 - Claude response with project-specific deployment details](screenshots/assignment-02-screenshot-04.png)
 
 ---
 
-#### Screenshot 5 — Claude response rejecting React/component change based on rules
+#### Screenshot 5 — Claude refusing or warning against adding React because of the "No JavaScript" convention defined in CLAUDE.md
+
+Add your screenshot here.
+
+---
+
+# Task 5 — Commit and push your changes to your fork in GitHub
+
+## Goal
+
+Commit the `CLAUDE.md` file and push it to your GitHub fork so the project instructions are version-controlled.
+
+### Evidence
+
+#### Screenshot 6 — `CLAUDE.md` visible in your GitHub repository after pushing the commit
 
 ![Screenshot 5 - Claude response rejecting React/component change based on rules](screenshots/assignment-02-screenshot-05.png)
 
@@ -95,6 +109,7 @@ Paste your forked repository URL here:
 - [x] Screenshot 4 shows updated deployment-aware Claude response
 - [x] Screenshot 5 shows Claude rejecting React request based on rules
 - [x] CLAUDE.md is committed and visible in GitHub repository
+- [x] GitHub repository URL is included in the submission
 
 ---
 

@@ -18,9 +18,9 @@ Generate a GitHub Personal Access Token (PAT) that will be used for MCP authenti
 
 ### Evidence
 
-#### Screenshot 1 — GitHub token creation (scopes only)
+#### Screenshot 1 — GitHub token creation page showing the selected scopes (`repo`, `read:user`) — token value must NOT be visible
 
-![Screenshot 1 - GitHub token creation (scopes only)](screenshots/assignment-05-screenshot-01.png)
+Add your screenshot here.
 
 ---
 
@@ -32,9 +32,10 @@ Create and configure the `.mcp.json` file to define the GitHub MCP server.
 
 ### Evidence
 
-#### Screenshot 2 — .mcp.json configuration in VS Code
+#### Screenshot 2 — `.mcp.json` open in VS Code showing the full configuration
 
-![Screenshot 2 - .mcp.json configuration in VS Code](screenshots/assignment-05-screenshot-02.png)
+Add your screenshot here.
+
 ---
 
 # Task 3 — Add Your Token to settings.local.json
@@ -45,9 +46,9 @@ Store your GitHub token securely in `.claude/settings.local.json` and ensure it 
 
 ### Evidence
 
-#### Screenshot 3 — settings.local.json (token hidden/blurred)
+#### Screenshot 3 — `settings.local.json` open in VS Code showing the `env` section — **blur or cover the actual GitHub token value**
 
-![Screenshot 3 - settings.local.json (token hidden/blurred)](screenshots/assignment-05-screenshot-03.png)
+Add your screenshot here.
 
 ---
 
@@ -59,9 +60,9 @@ Confirm that the GitHub MCP server is successfully connected inside Claude Code.
 
 ### Evidence
 
-#### Screenshot 4 — /mcp output showing GitHub connected
+#### Screenshot 4 — `/mcp` output showing `github: connected`
 
-![Screenshot 4 - /mcp output showing GitHub connected](screenshots/assignment-05-screenshot-04.png)
+Add your screenshot here.
 
 ---
 
@@ -73,9 +74,9 @@ Verify MCP functionality by retrieving real-time data from your GitHub account u
 
 ### Evidence
 
-#### Screenshot 5 — Claude response showing GitHub MCP retrieving README.md
+#### Screenshot 5 — Claude's response showing the GitHub MCP tool call and the retrieved README.md content.
 
-![Screenshot 5 - Claude's response showing the GitHub MCP tool call and the retrieved README.md](screenshots/assignment-05-screenshot-05.png)
+Add your screenshot here.
 
 ---
 
@@ -93,7 +94,7 @@ Verify MCP functionality by retrieving real-time data from your GitHub account u
 
 Paste your forked repository URL here:
 
-`https://github.com/chrispok18/Ultimate-Agentic-DevOps-with-Claude-Code`
+`__________________________`
 
 ---
 
@@ -101,21 +102,21 @@ Paste your forked repository URL here:
 
 Confirm below:
 
-- [x] `settings.local.json` is added to `.gitignore`
-- [x] GitHub token is NOT exposed in repository or screenshots
+- [ ] `settings.local.json` is added to `.gitignore`
+- [ ] GitHub token is NOT exposed in repository or screenshots
 
 ---
 
 # Completion Checklist
 
-- [x] GitHub PAT created with correct scopes (`repo`, `read:user`)
-- [x] `.mcp.json` created at project root
-- [x] `.claude/settings.local.json` contains token (hidden in screenshot)
-- [x] `.claude/settings.local.json` is NOT committed
-- [x] `/mcp` shows GitHub connection as active
-- [x] Live GitHub query returns real repository data
-- [x] All required screenshots added
-- [x] GitHub repository URL included
+- [ ] GitHub PAT created with correct scopes (`repo`, `read:user`)
+- [ ] `.mcp.json` created at project root
+- [ ] `.claude/settings.local.json` contains token (hidden in screenshot)
+- [ ] `.claude/settings.local.json` is NOT committed
+- [ ] `/mcp` shows GitHub connection as active
+- [ ] Live GitHub query returns real repository data
+- [ ] All required screenshots added
+- [ ] GitHub repository URL included
 
 ---
 
