@@ -133,7 +133,7 @@ Week 02 → Agentic AI with Claude Code
 | 00 | Internet & Networking Basics | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/caryee_devops-micro-internship-dmi-by-pravin-activity-7464410084220157952-WrTw?utm_source=share&utm_medium=member_desktop&rcm=ACoAACP6ElcBF7-kOglrea_3V5oUhVp4NSh-Trc | — |
 | 01 | Success Mindset | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/caryee_from-support-engineer-stuck-on-runbooks-to-share-7478914339790442496-V_9N/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACP6ElcBF7-kOglrea_3V5oUhVp4NSh-Trc | https://medium.com/@chrispok18/my-version-2-0-7b26b40a72bf?sharedUserId=chrispok18 |
 | 02 | Agentic AI with Claude Code | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/caryee_dmibypravinmishra-agenticai-claudecode-share-7481461583009918976-7mc3/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACP6ElcBF7-kOglrea_3V5oUhVp4NSh-Trc | https://medium.com/@chrispok18/reflection-week-2-05c87de6f7fe?sharedUserId=chrispok18 |
-| 03 | Linux & Bash for DevOps | 🔄 In Progress | ⏳ Pending | — | — |
+| 03 | Linux & Bash for DevOps | 🔄 In Progress | ⏳ Pending | https://www.linkedin.com/posts/caryee_devops-aws-linux-activity-7483663750915608577-Ky3m?utm_source=share&utm_medium=member_desktop&rcm=ACoAACP6ElcBF7-kOglrea_3V5oUhVp4NSh-Trc | https://medium.com/@chrispok18/treating-my-own-server-like-production-a-devops-maintenance-drill-dab1738ddb1e |
 | 04 | Git & GitHub | ⬜ Not Started | ⏳ Pending | — | — |
 | 05 | DevOps Lifecycle & Agile | ⬜ Not Started | ⏳ Pending | — | — |
 | 06 | AWS Cloud | ⬜ Not Started | ⏳ Pending | — | — |
