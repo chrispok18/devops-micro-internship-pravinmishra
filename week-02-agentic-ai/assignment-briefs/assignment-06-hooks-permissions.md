@@ -32,9 +32,9 @@ On real infrastructure teams, no engineer gives AI unrestricted access to produc
 - Create a hook that records executed commands using a post-execution logging hook
 - Configure external hook scripts and connect them through `settings.json`
 - Prove all three hooks work through live tests:
-  - UserPromptSubmit blocks destructive prompts
-  - PreToolUse blocks dangerous Bash commands
-  - PostToolUse logs successful command executions
+- UserPromptSubmit blocks destructive prompts
+- PreToolUse blocks dangerous Bash commands
+- PostToolUse logs successful command executions
 ---
 
 ## 5. Important Instructions (Global Rules)
@@ -555,9 +555,9 @@ Before submission, verify:
 - [ ] `post-tool-logger.sh` created with PostToolUse logging logic
 - [ ] `settings.json` created with allow and deny permissions
 - [ ] `settings.json` configured to connect all three hooks:
-  - [ ] UserPromptSubmit
-  - [ ] PreToolUse
-  - [ ] PostToolUse
+- [ ] UserPromptSubmit
+- [ ] PreToolUse
+- [ ] PostToolUse
 - [ ] Destructive prompt test shows UserPromptSubmit blocked the request
 - [ ] Terraform destroy command test shows PreToolUse intercepted the command
 - [ ] Terraform validate test shows PostToolUse created the log entry
