@@ -154,7 +154,7 @@ P.S. This is from DevOps Micro Internship with Agentic AI Cohort-3 by Pravin Mis
 
 ### Public Link
 
-https://medium.com/@chrispok18/my-version-2-0-7b26b40a72bf
+https://medium.com/@chrispok18/the-fundamentals-never-go-out-of-style-a-week-1-devops-reflection-d64be73f4a09?sharedUserId=chrispok18 
 
 ---
 
