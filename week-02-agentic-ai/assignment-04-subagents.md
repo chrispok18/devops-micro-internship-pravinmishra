@@ -20,7 +20,7 @@ Create the `.claude/agents/` directory and add all required agent files.
 
 #### Screenshot 1 — VS Code sidebar showing `.claude/agents/` with all 3 files
 
-Add your screenshot here.
+![Screenshot 1 — VS Code sidebar showing `.claude/agents/` with all 3 files](screenshots/assignment-04-screenshot-01.png)
 
 ---
 
@@ -34,19 +34,19 @@ Analyze the configuration differences between the three agents and demonstrate u
 
 #### 1. Why does the cost optimizer use Haiku instead of Sonnet?
 
-Add your answer here...
+Cost analysis is largely a pattern-matching and arithmetic task — scanning Terraform files for instance types, storage classes, and idle resources, then comparing them against known pricing tiers or flagging obvious inefficiencies (like an oversized instance or an unattached EBS volume). This doesn't require deep reasoning or nuanced judgment calls the way security analysis does — it's closer to a structured checklist. Haiku is faster and cheaper, and since this agent will likely be triggered often (cost reviews are routine, repeatable work), using a lighter model keeps the workflow efficient without sacrificing the quality of the output.
 
 ---
 
 #### 2. Why does the security auditor NOT have Write in its tools list?
 
-Add your answer here...
+A security auditor's job is to find and report problems, not to fix them automatically. Giving it Write access would mean an AI agent could unilaterally modify live infrastructure configuration based on its own judgment — which is exactly the kind of unchecked authority the Hooks & Permissions assignment was built to prevent. By restricting it to read-only tools, the agent can flag a misconfigured security group or an overly permissive IAM policy, but a human still has to review the findings and make the actual change. This keeps a human in the loop for anything security-sensitive, rather than letting the agent self-authorize edits.
 
 ---
 
 #### 3. Why does the tf-writer use `inherit` instead of a specific model?
 
-Add your answer here...
+inherit means this agent uses whatever model the main Claude Code session is currently running, rather than being locked to one specific model. This makes sense for a Terraform-writing agent because generating actual infrastructure code is a complex, context-heavy task — it benefits from the same reasoning capability as the primary session, and locking it to a fixed model (especially a cheaper one like Haiku) could produce lower-quality or inconsistent code. inherit also future-proofs the agent: if the primary session gets upgraded to a stronger model later, the tf-writer automatically benefits without needing its config edited.
 
 ---
 
@@ -54,13 +54,13 @@ Add your answer here...
 
 #### Screenshot 2 — `security-auditor.md` frontmatter showing model and tools configuration
 
-Add your screenshot here.
+![Screenshot 2 — `security-auditor.md` frontmatter showing model and tools configuration](screenshots/assignment-04-screenshot-02.png)
 
 ---
 
 #### Screenshot 3 — `cost-optimizer.md` frontmatter showing the model and tools configuration
 
-Add your screenshot here.
+![Screenshot 3 — `cost-optimizer.md` frontmatter showing the model and tools configuration](screenshots/assignment-04-screenshot-03.png)
 
 ---
 
@@ -74,13 +74,14 @@ Trigger the security auditor agent and analyze the generated security report for
 
 #### Screenshot 4 — The delegation message showing Claude launched the security-auditor
 
-Add your screenshot here.
+![Screenshot 4 — The delegation message showing Claude launched the security-auditor](screenshots/assignment-04-screenshot-04.png)
 
 ---
 
 #### Screenshot 5 — Security audit report output
 
-Add your screenshot here.
+![Screenshot 5 — Security audit report output](screenshots/assignment-04-screenshot-05.png)
+
 
 ---
 
@@ -94,7 +95,7 @@ Trigger the cost optimizer agent and review the generated cost optimization repo
 
 #### Screenshot 6 — The full cost optimization report
 
-Add your screenshot here.
+![Screenshot 6 — The full cost optimization report](screenshots/assignment-04-screenshot-06.png)
 
 ---
 
@@ -110,22 +111,22 @@ Add your screenshot here.
 
 Paste your forked repository URL here:
 
-`Add your URL here`
+`https://github.com/chrispok18/devops-micro-internship-pravinmishra`
 
 ---
 
 # Completion Checklist
 
-- [ ] `.claude/agents/` folder contains all 3 agent files
-- [ ] Screenshot 2 shows correct `security-auditor.md` configuration
-- [ ] Screenshot 3 shows correct `cost-optimizer.md` configuration
-- [ ] All 3 written answers completed 
-- [ ] Security auditor executed successfully
-- [ ] Cost optimizer executed successfully
-- [ ] Security report is visible with findings
-- [ ] Cost report is visible with recommendations
-- [ ] All required screenshots added
-- [ ] GitHub repo updated with agents
+- [x] `.claude/agents/` folder contains all 3 agent files
+- [x] Screenshot 2 shows correct `security-auditor.md` configuration
+- [x] Screenshot 3 shows correct `cost-optimizer.md` configuration
+- [x] All 3 written answers completed 
+- [x] Security auditor executed successfully
+- [x] Cost optimizer executed successfully
+- [x] Security report is visible with findings
+- [x] Cost report is visible with recommendations
+- [x] All required screenshots added
+- [x] GitHub repo updated with agents
 
 ---
 
