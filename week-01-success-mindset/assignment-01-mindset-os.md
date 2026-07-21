@@ -252,16 +252,16 @@ List topics only. No need to share numbers.
 
 ## My Metrics
 
-* Add your answer here...Learning hours per week
-* Add your answer here...Deep work sessions completed per week
-* Add your answer here...Projects shipped and documented on GitHub
-* Add your answer here...Blog posts / write-ups published per month
-* Add your answer here...Sleep hours (average, tracked nightly)
-* Add your answer here...Workouts completed per week
-* Add your answer here...Weekly spending vs. budget
-* Add your answer here...Number of people helped / mentored per month
-* Add your answer here...Job applications or outreach messages sent (when job hunting)
-* Add your answer here...Time spent in reactive tasks vs. planned deep work
+* Learning hours per week — 5-7 hours dedicated to DMI coursework and self-study
+* Deep work sessions completed per week — 3-4 focused sessions of 90+ minutes
+* Projects shipped and documented on GitHub — 1 assignment per week minimum, pushed and committed
+* Blog posts / write-ups published per month — 4, one per week alongside each assignment
+* Sleep hours (average, tracked nightly) — 7 hours
+* Workouts completed per week — 2-3
+* Weekly spending vs. budget — tracked against a fixed monthly budget, reviewed every Sunday
+* Number of people helped / mentored per month — informal for now, aiming for at least 1 as I grow more confident in DevOps
+* Job applications or outreach messages sent (when job hunting) — 5-10 per week during active search periods
+* Time spent in reactive tasks vs. planned deep work — aiming for at least 60% planned, 40% reactive
 
 ---
 
@@ -359,7 +359,7 @@ Every Sunday at 6:00 PM, a 45-minute review: check the 6 weekly metrics, note wh
 
 Paste your LinkedIn post link here:
 
-`Add your URL here`
+`https://www.linkedin.com/posts/caryee_from-support-engineer-stuck-on-runbooks-to-share-7478914339790442496-V_9N/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACP6ElcBF7-kOglrea_3V5oUhVp4NSh-Trc`
 
 ---
 
