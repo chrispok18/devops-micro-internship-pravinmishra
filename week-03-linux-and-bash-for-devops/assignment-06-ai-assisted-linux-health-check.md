@@ -440,13 +440,13 @@ Gather: the Bash script collecting raw evidence (service status, port, HTTP, dis
 
 Paste your LinkedIn post URL here:
 
-`Add your URL here`
+`https://www.linkedin.com/posts/caryee_dmibypravinmishra-activity-7485820388808220672--FAu?utm_source=share&utm_medium=member_desktop&rcm=ACoAACP6ElcBF7-kOglrea_3V5oUhVp4NSh-Trc`
 
 ---
 
 #### Screenshot — Published LinkedIn post
 
-Add your screenshot here.
+![Screenshot — Published LinkedIn post)](screenshots/assignment-06-screenshot-20.png)
 
 ---
 
