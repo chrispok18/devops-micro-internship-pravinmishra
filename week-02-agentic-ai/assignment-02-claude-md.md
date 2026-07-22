@@ -67,7 +67,7 @@ Verify that Claude’s behavior changes after adding `CLAUDE.md` by running a ne
 
 #### Screenshot 5 — Claude refusing or warning against adding React because of the "No JavaScript" convention defined in CLAUDE.md
 
-Add your screenshot here.
+![Screenshot 5 - Claude response rejecting React/component change based on rules](screenshots/assignment-02-screenshot-05.png)
 
 ---
 
@@ -81,7 +81,7 @@ Commit the `CLAUDE.md` file and push it to your GitHub fork so the project instr
 
 #### Screenshot 6 — `CLAUDE.md` visible in your GitHub repository after pushing the commit
 
-![Screenshot 5 - Claude response rejecting React/component change based on rules](screenshots/assignment-02-screenshot-05.png)
+![Screenshot 5 - Claude response rejecting React/component change based on rules](screenshots/assignment-02-screenshot-06.png)
 
 ---
 
