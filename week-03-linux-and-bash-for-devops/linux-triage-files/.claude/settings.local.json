@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(linux-triage)",
+      "Bash(bash /home/caryee/linux-triage-assignment/scripts/linux-triage.sh)"
+    ]
+  }
+}

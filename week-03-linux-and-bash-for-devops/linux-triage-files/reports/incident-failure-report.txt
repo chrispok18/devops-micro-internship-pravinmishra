@@ -1,0 +1,49 @@
+================================================
+ Linux/Nginx Triage Report
+ Operator: Christian Aryee
+ Timestamp: 2026-07-22 21:01:36 GMT
+ Host: wadl
+================================================
+
+Overall Status: FAIL
+
+Summary
+-------
+  Service Status:      FAIL
+  Port Availability:   FAIL
+  HTTP Response:       FAIL
+  Disk Space:          HEALTHY (2% used)
+  Error Logs:          HEALTHY (no error/crit/alert/emerg entries in last 50 lines)
+
+What Failed
+-----------
+Nginx is down, which cascades into the port and HTTP checks failing as well.
+
+Evidence
+--------
+- systemctl status nginx shows: Active: inactive (dead) since Wed 2026-07-22 20:59:33 GMT.
+  Journal shows a clean stop sequence:
+    Jul 22 20:59:32 wadl systemd[1]: Stopping nginx.service...
+    Jul 22 20:59:33 wadl systemd[1]: nginx.service: Deactivated successfully.
+    Jul 22 20:59:33 wadl systemd[1]: Stopped nginx.service...
+  Both the main process and the ExecStop handler exited with code=exited, status=0/SUCCESS.
+- Port Availability check: No listener found on port 80.
+- HTTP Response check: No HTTP response received from http://localhost/.
+- Disk Space check: /dev/sdd 251G total, 4.4G used, 234G available, 2% used — healthy.
+- Error Logs check: Only a routine startup notice from the previous run
+  (2026/07/21 21:39:58 [notice] 1539#1539: using inherited sockets from "5;6;") —
+  no error/crit/alert/emerg entries found.
+
+Likely Cause
+------------
+The evidence indicates a deliberate/clean shutdown of nginx (e.g. `systemctl stop nginx`
+run by a person or another unit) rather than a crash — exit status is 0/SUCCESS throughout
+and there is no corresponding error-log entry indicating a fault.
+
+Suggested Recovery (NOT executed)
+----------------------------------
+  sudo systemctl start nginx
+
+This command was NOT run by Claude. Per project safety rules, a human operator must
+review this report, execute any recovery action manually, and re-run the triage script
+to verify the system is healthy afterward.

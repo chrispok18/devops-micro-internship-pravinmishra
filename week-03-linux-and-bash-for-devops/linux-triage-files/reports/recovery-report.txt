@@ -1,0 +1,52 @@
+================================================
+ Linux/Nginx Triage Report
+ Full Name: Christian Aryee
+ Timestamp: 2026-07-22 21:12:46 GMT
+ Host: wadl
+================================================
+
+---- Check 1: Service Status ----
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/usr/lib/systemd/system/nginx.service; enabled; preset: enabled)
+     Active: active (running) since Wed 2026-07-22 21:10:48 GMT; 1min 58s ago
+       Docs: man:nginx(8)
+    Process: 19462 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+    Process: 19464 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+   Main PID: 19465 (nginx)
+      Tasks: 5 (limit: 4598)
+     Memory: 4.1M (peak: 4.3M)
+        CPU: 104ms
+Result: HEALTHY — nginx.service is active and running.
+
+---- Check 2: Port Availability ----
+Port 80 is listening:
+tcp   LISTEN 0      511           0.0.0.0:80         0.0.0.0:*
+tcp   LISTEN 0      511              [::]:80            [::]:*
+Result: HEALTHY — Port 80 has an active listener.
+
+---- Check 3: HTTP Response ----
+HTTP 200 received in 0.002806s
+Result: HEALTHY — HTTP 200 in 0.002806s.
+
+---- Check 4: Disk Space ----
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sdd        251G  4.4G  234G   2% /
+Result: HEALTHY — Root filesystem at 2% used.
+
+---- Check 5: Recent Error Logs ----
+2026/07/21 21:39:58 [notice] 1539#1539: using inherited sockets from "5;6;"
+Result: HEALTHY — No error/crit/alert/emerg entries in last 50 lines of error.log.
+
+================================================
+ Summary
+================================================
+  Service Status:      HEALTHY
+  Port Availability:   HEALTHY
+  HTTP Response:       HEALTHY
+  Disk Space:          HEALTHY
+  Error Logs:          HEALTHY
+
+Overall Status: HEALTHY
+================================================
+
+Analysis: No failures detected. No recovery action needed at this time.
