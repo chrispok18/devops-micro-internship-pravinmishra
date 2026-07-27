@@ -79,8 +79,8 @@ Week 02 → Agentic AI with Claude Code
 Week 03 → Linux & Bash for DevOps
 [![Week 03 – Linux & Bash](./badges/week-03.svg)](./week-03-linux-and-bash-for-devops/)
 
-<!-- Week 04 → Git & GitHub -->
-<!-- [![Week 04 – Git](./badges/week-04.svg)](./week-04-git-and-github/) -->
+Week 04 → Git & GitHub
+[![Week 04 – Git](./badges/week-04.svg)](./week-04-git-and-github/)
 
 <!-- Week 05 → DevOps Lifecycle & Agile -->
 <!-- [![Week 05 – Agile](./badges/week-05.svg)](./week-05-devops-lifecycle/) -->
@@ -134,7 +134,7 @@ Week 03 → Linux & Bash for DevOps
 | 01 | Success Mindset | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/caryee_from-support-engineer-stuck-on-runbooks-to-share-7478914339790442496-V_9N/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACP6ElcBF7-kOglrea_3V5oUhVp4NSh-Trc | https://medium.com/@chrispok18/my-version-2-0-7b26b40a72bf?sharedUserId=chrispok18 |
 | 02 | Agentic AI with Claude Code | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/caryee_dmibypravinmishra-agenticai-claudecode-share-7481461583009918976-7mc3/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACP6ElcBF7-kOglrea_3V5oUhVp4NSh-Trc | https://medium.com/@chrispok18/reflection-week-2-05c87de6f7fe?sharedUserId=chrispok18 |
 | 03 | Linux & Bash for DevOps | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/caryee_devops-bash-linux-ugcPost-7483979685576687619-9vCs/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACP6ElcBF7-kOglrea_3V5oUhVp4NSh-Trc | https://medium.com/@chrispok18/treating-my-own-server-like-production-a-devops-maintenance-drill-dab1738ddb1e |
-| 04 | Git & GitHub | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/caryee_dmibypravinmishra-ugcPost-7486103122558476301-anwe/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACP6ElcBF7-kOglrea_3V5oUhVp4NSh-Trc | — |
+| 04 | Git & GitHub | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/caryee_dmibypravinmishra-ugcPost-7486103122558476301-anwe/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACP6ElcBF7-kOglrea_3V5oUhVp4NSh-Trc | https://medium.com/@chrispok18/from-an-empty-folder-to-live-website-my-first-real-git-ec2-deployment-a986173e660a?sharedUserId=chrispok18 |
 | 05 | DevOps Lifecycle & Agile | ⬜ Not Started | ⏳ Pending | — | — |
 | 06 | AWS Cloud | ⬜ Not Started | ⏳ Pending | — | — |
 | 07 | Azure Cloud | ⬜ Not Started | ⏳ Pending | — | — |
