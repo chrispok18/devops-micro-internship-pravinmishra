@@ -30,13 +30,13 @@ Sign in to the Azure Portal, locate key services (Resource Groups, Virtual Machi
 
 #### Screenshot 1 — Azure Portal homepage after successful login
 
-Add your screenshot here.
+![Screenshot 1 — Azure Portal homepage after successful login](screenshots/assignment-01-screenshot-01.png)
 
 ---
 
 #### Screenshot 2 — "Subscriptions" section showing the "Free Trial" subscription
 
-Add your screenshot here.
+![Screenshot 2 — "Subscriptions" section showing the "Free Trial" subscription](screenshots/assignment-01-screenshot-02.png)
 
 ---
 
@@ -44,8 +44,7 @@ Add your screenshot here.
 
 Write a three-to-four-line paragraph explaining which Azure services you plan to explore first and why.
 
-Write your answer here.
-
+I plan to explore Resource Groups first, since I've used them on AWS and want to see how Azure organizes resources the same way — as a container for everything I deploy in a project. After that I'll look at Virtual Machines and App Services, since compute is where most of my hands-on labs will happen, and I want to compare Azure's VM setup to what I already know from EC2. Storage accounts are next on my list for working with lab data and static files.
 ---
 
 # Submission Instructions
@@ -57,12 +56,12 @@ Write your answer here.
 
 # Completion Checklist
 
-- [ ] Azure Free Account created with identity, phone, and payment verification completed
-- [ ] Microsoft Agreement and Offer Terms accepted
-- [ ] Azure Portal accessed successfully (Screenshot 1)
-- [ ] Free Trial subscription confirmed (Screenshot 2)
-- [ ] Reflection paragraph written (Notes)
-- [ ] No sensitive information exposed
+- [x] Azure Free Account created with identity, phone, and payment verification completed
+- [x] Microsoft Agreement and Offer Terms accepted
+- [x] Azure Portal accessed successfully (Screenshot 1)
+- [x] Free Trial subscription confirmed (Screenshot 2)
+- [x] Reflection paragraph written (Notes)
+- [x] No sensitive information exposed
 
 ---
 
