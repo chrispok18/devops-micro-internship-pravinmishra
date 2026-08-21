@@ -116,7 +116,7 @@ Confirm the React app loads through the VM's public IP, navigation works, and a 
 
 #### Screenshot 9 — Browser showing the React app with the public IP visible in the address bar
 
-Add your screenshot here.
+![ Screenshot 9 — Browser showing the React app with the public IP visible in the address bar](screenshots/assignment-02-screenshot-09.png)
 
 ---
 
@@ -130,7 +130,7 @@ Restrict the SSH Network Security Group rule to your IP if not already restricte
 
 #### Screenshot 10 (optional) — Network Security Group rule showing SSH restricted to your IP
 
-Add your screenshot here.
+![ Screenshot 10 (optional) — Network Security Group rule showing SSH restricted to your IP](screenshots/assignment-02-screenshot-10.png)
 
 ---
 
