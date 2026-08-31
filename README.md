@@ -91,8 +91,8 @@ Week 06 → AWS Cloud
 Week 07 → Azure Cloud
 [![Week 07 – Azure](./badges/week-07.svg)](./week-07-azure-cloud/)
 
-<!-- Week 08 → Terraform -->
-<!-- [![Week 08 – Terraform](./badges/week-08.svg)](./week-08-terraform/) -->
+Week 08 → Terraform
+[Week 08 – Terraform](./badges/week-08.svg)](./week-08-terraform/)
 
 <!-- Week 09 → Ansible -->
 <!-- [![Week 09 – Ansible](./badges/week-09.svg)](./week-09-ansible/) -->
@@ -137,8 +137,8 @@ Week 07 → Azure Cloud
 | 04 | Git & GitHub | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/caryee_dmibypravinmishra-ugcPost-7486103122558476301-anwe/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACP6ElcBF7-kOglrea_3V5oUhVp4NSh-Trc | https://medium.com/@chrispok18/from-an-empty-folder-to-live-website-my-first-real-git-ec2-deployment-a986173e660a?sharedUserId=chrispok18 |
 | 05 | DevOps Lifecycle & Agile | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/caryee_dmibypravinmishra-devops-aws-ugcPost-7491610532005974016-Udkc/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACP6ElcBF7-kOglrea_3V5oUhVp4NSh-Trc | https://medium.com/@chrispok18/standing-up-my-first-scrum-board-in-jira-a-beginners-walkthrough-a011891b7fa0?sharedUserId=chrispok18 |
 | 06 | AWS Cloud | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/caryee_dmibypravinmishra-aws-devops-ugcPost-7494514399727161344-5Bmy/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACP6ElcBF7-kOglrea_3V5oUhVp4NSh-Trc | https://medium.com/@chrispok18/from-cost-guardrails-to-a-live-endpoint-what-week-6-of-aws-cloud-taught-me-about-shipping-d23e21462fea |
-| 07 | Azure Cloud | ✅ Completed | ✅ Solved | — | https://medium.com/@chrispok18/hosting-a-website-with-no-server-a-static-site-on-azure-storage-3d16dd0be270?sharedUserId=chrispok18 |
-| 08 | Terraform | ⬜ Not Started | ⏳ Pending | — | — |
+| 07 | Azure Cloud | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/caryee_dmibypravinmishra-azure-devops-activity-7499935665317646336-Gk_h?utm_source=share&utm_medium=member_desktop&rcm=ACoAACP6ElcBF7-kOglrea_3V5oUhVp4NSh-Trc | https://medium.com/@chrispok18/hosting-a-website-with-no-server-a-static-site-on-azure-storage-3d16dd0be270?sharedUserId=chrispok18 |
+| 08 | Terraform | ✅ Completed | ✅ Solved | — | — |
 | 09 | Ansible | ⬜ Not Started | ⏳ Pending | — | — |
 | 10 | Azure DevOps (CI/CD) | ⬜ Not Started | ⏳ Pending | — | — |
 | 11 | Docker | ⬜ Not Started | ⏳ Pending | — | — |
