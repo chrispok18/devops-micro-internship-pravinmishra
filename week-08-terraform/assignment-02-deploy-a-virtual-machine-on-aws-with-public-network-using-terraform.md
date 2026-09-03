@@ -20,7 +20,7 @@ Create a `terraform-aws-vm` project directory for the AWS Terraform configuratio
 
 #### Screenshot 1 — File Explorer, VS Code, or terminal showing the `terraform-aws-vm` project directory
 
-Add your screenshot here.
+![Screenshot 1 — File Explorer, VS Code, or terminal showing the `terraform-aws-vm` project directory](screenshots/assignment-02-screenshot-01.png)
 
 ---
 
@@ -34,7 +34,7 @@ Define the AWS provider, a VPC (10.0.0.0/16) with a public subnet (10.0.1.0/24) 
 
 #### Screenshot 2 (optional) — `main.tf` showing the VPC and EC2 resource blocks
 
-Add your screenshot here.
+![Screenshot 2 (optional) — `main.tf` showing the VPC and EC2 resource blocks](screenshots/assignment-02-screenshot-02.png)
 
 ---
 
@@ -48,7 +48,7 @@ Run `terraform init` and confirm the working directory initializes successfully.
 
 #### Screenshot 3 — Terminal showing successful `terraform init` output
 
-Add your screenshot here.
+![Screenshot 3 — Terminal showing successful `terraform init` output](screenshots/assignment-02-screenshot-04.png)
 
 ---
 
@@ -62,13 +62,13 @@ Review `terraform plan`, run `terraform apply`, and record the EC2 instance's pu
 
 #### Screenshot 4 — Terraform apply output showing successful completion
 
-Add your screenshot here.
+![Screenshot 4 — Terraform apply output showing successful completion](screenshots/assignment-02-screenshot-05.png)
 
 ---
 
 #### Screenshot 5 — Terraform output showing the EC2 public IP
 
-Add your screenshot here.
+![Screenshot 5 — Terraform output showing the EC2 public IP](screenshots/assignment-02-screenshot-07.png)
 
 ---
 
@@ -82,13 +82,13 @@ Confirm the EC2 instance is running in the public subnet with a public IP, insta
 
 #### Screenshot 6 — EC2 instance running in the AWS Console, with the subnet and public IP visible
 
-Add your screenshot here.
+![Screenshot 6 — EC2 instance running in the AWS Console, with the subnet and public IP visible](screenshots/assignment-02-screenshot-09.png)
 
 ---
 
 #### Screenshot 7 — Browser showing the Nginx page through the EC2 public IP, or terminal showing a successful SSH connection
 
-Add your screenshot here.
+![Screenshot 7 — Browser showing the Nginx page through the EC2 public IP, or terminal showing a successful SSH connection](screenshots/assignment-02-screenshot-09.png)
 
 ---
 
@@ -102,7 +102,7 @@ Run `terraform destroy` to remove the Terraform-managed AWS resources after test
 
 #### Screenshot 8 — Terminal showing successful `terraform destroy` completion
 
-Add your screenshot here.
+![Screenshot 8 — Terminal showing successful `terraform destroy` completion](screenshots/assignment-02-screenshot-10.png)
 
 ---
 
@@ -110,8 +110,7 @@ Add your screenshot here.
 
 Write a short paragraph about any challenges you faced and how you solved them.
 
-Write your answer here.
-
+One of the main challenges was making sure the AMI ID for the EC2 instance stayed valid for my region — instead of hardcoding an AMI ID (which the assignment specifically warns against, since AMI IDs are region-specific and outdated tutorials can point to stale ones), I used a Terraform data "aws_ami" block to dynamically look up the most recent Ubuntu 22.04 AMI in eu-north-1 at apply time. The other challenge came up during terraform destroy: the output included my AWS account ID in the owner_id field, which the assignment explicitly says not to expose. I caught this before submitting and redacted it with a solid overlay box on the screenshot rather than retaking the whole destroy sequence, since the resources were already gone.
 ---
 
 # Submission Instructions
