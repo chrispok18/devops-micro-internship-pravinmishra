@@ -124,14 +124,14 @@ Write your answer here.
 
 # Completion Checklist
 
-- [ ] Task 1: `terraform-aws-vm` project created (Screenshot 1)
-- [ ] Task 2: `main.tf` defines VPC, subnets, IGW, Security Group, and EC2 (Screenshot 2, optional)
-- [ ] Task 3: `terraform init` completed successfully (Screenshot 3)
-- [ ] Task 4: Plan reviewed and `terraform apply` completed, public IP recorded (Screenshots 4–5)
-- [ ] Task 5: EC2 instance verified running and accessible (Screenshots 6–7)
-- [ ] Task 6: `terraform destroy` completed successfully (Screenshot 8)
-- [ ] Challenges/solutions paragraph written (Notes)
-- [ ] No sensitive information exposed
+- [x] Task 1: `terraform-aws-vm` project created (Screenshot 1)
+- [x] Task 2: `main.tf` defines VPC, subnets, IGW, Security Group, and EC2 (Screenshot 2, optional)
+- [x] Task 3: `terraform init` completed successfully (Screenshot 3)
+- [x] Task 4: Plan reviewed and `terraform apply` completed, public IP recorded (Screenshots 4–5)
+- [x] Task 5: EC2 instance verified running and accessible (Screenshots 6–7)
+- [x] Task 6: `terraform destroy` completed successfully (Screenshot 8)
+- [x] Challenges/solutions paragraph written (Notes)
+- [x] No sensitive information exposed
 
 ---
 
