@@ -20,19 +20,21 @@ Create a custom VPC/VNet (10.0.0.0/16) with six subnets across two Availability 
 
 #### Screenshot 1 — VPC or VNet details showing 10.0.0.0/16
 
-Add your screenshot here.
+![Screenshot 1 — VPC or VNet details showing 10.0.0.0/16](screenshots/assignment-05-screenshot-01.png)
 
 ---
 
 #### Screenshot 2 — Subnet list showing all six subnets, their tiers, CIDR ranges, and Availability Zones
 
-Add your screenshot here.
+![Screenshot 2 — Subnet list showing all six subnets, their tiers, CIDR ranges, and Availability Zones](screenshots/assignment-05-screenshot-02.png)
+
+![Screenshot 2 — Subnet list showing all six subnets, their tiers, CIDR ranges, and Availability Zones](screenshots/assignment-05-screenshot-02a.png)
 
 ---
 
 #### Screenshot 3 — Terraform plan or cloud networking view showing the required routing and tier isolation
 
-Add your screenshot here.
+![Screenshot 3 — Terraform plan or cloud networking view showing the required routing and tier isolation](screenshots/assignment-05-screenshot-03.png)
 
 ---
 
@@ -46,25 +48,25 @@ Configure tier-specific Security Groups/NSGs (Web Tier HTTP 80, App Tier 3001 on
 
 #### Screenshot 4 — Web, App, and Database Security Group or NSG rules
 
-Add your screenshot here.
+![Screenshot 4 — Web, App, and Database Security Group or NSG rules](screenshots/assignment-05-screenshot-04.png)
 
 ---
 
 #### Screenshot 5 — Public frontend load balancer configuration
 
-Add your screenshot here.
+![Screenshot 5 — Public frontend load balancer configuration](screenshots/assignment-05-screenshot-05.png)
 
 ---
 
 #### Screenshot 6 — Internal backend load balancer configuration
 
-Add your screenshot here.
+![Screenshot 6 — Internal backend load balancer configuration](screenshots/assignment-05-screenshot-06.png)
 
 ---
 
 #### Screenshot 7 — Healthy frontend and backend targets or backend pools
 
-Add your screenshot here.
+![Screenshot 7 — Healthy frontend and backend targets or backend pools](screenshots/assignment-05-screenshot-07.png)
 
 ---
 
@@ -78,19 +80,19 @@ Deploy the Next.js Web Tier behind Nginx on port 80 in the public subnets, and t
 
 #### Screenshot 8 — EC2 or Azure VM dashboard showing the frontend and backend VMs
 
-Add your screenshot here.
+![Screenshot 8 — EC2 or Azure VM dashboard showing the frontend and backend VMs](screenshots/assignment-05-screenshot-08.png)
 
 ---
 
 #### Screenshot 9 — Nginx status or frontend response on the Web Tier
 
-Add your screenshot here.
+![Screenshot 9 — Nginx status or frontend response on the Web Tier](screenshots/assignment-05-screenshot-09.png)
 
 ---
 
 #### Screenshot 10 — Backend API response through the permitted internal path
 
-Add your screenshot here.
+![Screenshot 10 — Backend API response through the permitted internal path](screenshots/assignment-05-screenshot-10.png)
 
 ---
 
@@ -104,31 +106,37 @@ Deploy a private managed MySQL database (Amazon RDS Multi-AZ or Azure Database f
 
 #### Screenshot 11 — Amazon RDS or Azure Database dashboard showing the primary database and read replica
 
-Add your screenshot here.
+![Screenshot 11 — Amazon RDS or Azure Database dashboard showing the primary database and read replica](screenshots/assignment-05-screenshot-11.png)
 
 ---
 
 #### Screenshot 12 — Evidence of private database networking and permitted App Tier access
 
-Add your screenshot here.
+![Screenshot 12 — Evidence of private database networking and permitted App Tier access](screenshots/assignment-05-screenshot-12.png)
+
+![Screenshot 12 — Evidence of private database networking and permitted App Tier access](screenshots/assignment-05-screenshot-12a.png)
+
 
 ---
 
 #### Screenshot 13 — Functional Book Review App homepage and login flow
 
-Add your screenshot here.
+![Screenshot 13 — Functional Book Review App homepage and login flow](screenshots/assignment-05-screenshot-13.png)
+
+![Screenshot 13 — Functional Book Review App homepage and login flow](screenshots/assignment-05-screenshot-13a.png)
+
 
 ---
 
 #### Screenshot 14 — Functional review flow with working backend API and database integration
 
-Add your screenshot here.
+![Screenshot 14 — Functional review flow with working backend API and database integration](screenshots/assignment-05-screenshot-14.png)
 
 ---
 
 #### Screenshot 15 (optional) — Application logs or terminal output
 
-Add your screenshot here.
+![Screenshot 15 (optional) — Application logs or terminal output](screenshots/assignment-05-screenshot-15.png)
 
 ---
 
@@ -136,8 +144,59 @@ Add your screenshot here.
 
 Report the cloud platform used (AWS or Azure), your Terraform code structure (`main.tf`, `variables.tf`, `outputs.tf`, and supporting files), a link/description of your architecture diagram, and the Public Load Balancer DNS used to access the frontend.
 
-Write your answer here.
+![My architecture diagram](https://claude.ai/public/artifacts/7e279c86-c1d9-404c-818a-ece5419ceacc)
 
+
+Cloud Platform Used
+
+AWS (Amazon Web Services), region eu-north-1 (Stockholm).
+
+Terraform Code Structure
+
+The project uses a modular structure, separating each layer of the architecture into its own reusable module:
+
+book-review-capstone/terraform/
+├── main.tf                  # Root config — calls all 4 modules, sets AWS provider/region
+├── variables.tf             # Root input variables (region, CIDRs, project name, db_password)
+├── outputs.tf                # Root outputs — VPC ID, subnet IDs, ALB DNS names, DB endpoint, app private IP
+├── terraform.tfvars          # Sensitive values (db_password) — gitignored, never committed
+├── .gitignore                 # Excludes capstone-key, capstone-key.pub, *.tfstate, terraform.tfvars
+├── capstone-key / capstone-key.pub   # SSH key pair for EC2 access (private key gitignored)
+└── modules/
+    ├── network/              # VPC, 6 subnets, IGW, NAT Gateway, route tables
+    │   ├── main.tf
+    │   ├── variables.tf
+    │   └── outputs.tf
+    ├── security/               # 4 security groups (ALB, Web, App, DB) — least-privilege chaining
+    │   ├── main.tf
+    │   ├── variables.tf
+    │   └── outputs.tf
+    ├── load-balancer/          # Public ALB + internal ALB, target groups, listeners
+    │   ├── main.tf
+    │   ├── variables.tf
+    │   └── outputs.tf
+    ├── compute/                # EC2 instances (web + app), user-data scripts, target group attachments
+    │   ├── main.tf
+    │   ├── variables.tf
+    │   ├── outputs.tf
+    │   ├── web-userdata.sh
+    │   └── app-userdata.sh
+    └── database/               # RDS MySQL primary (Multi-AZ) + read replica, DB subnet group
+        ├── main.tf
+        ├── variables.tf
+        └── outputs.tf
+
+Each module takes its dependencies as input variables (e.g., the compute module receives subnet IDs from network, security group IDs from security, and target group ARNs from load_balancer) and exposes its key resource IDs as outputs for the next module to consume — keeping the modules independently readable while wiring together correctly through the root main.tf.
+
+Architecture Diagram
+
+(Insert your Draw.io/Lucidchart link or embedded image here — it should show the VPC, 6 subnets across 2 AZs, the public and internal ALBs, the web/app tiers, and the primary + replica MySQL setup, matching the "Screenshots #1–3" evidence above.)
+
+Public Load Balancer DNS
+
+capstone-public-alb-326296564.eu-north-1.elb.amazonaws.com
+
+This is the single entry point for the deployed application — the frontend is only reachable through this DNS name, with the app, backend, and database all sitting in private subnets behind it.
 ---
 
 # LinkedIn Post (Required)
@@ -152,13 +211,13 @@ Publish a LinkedIn post about what you achieved in this assignment, with public 
 
 Paste your LinkedIn post URL here:
 
-`Add your URL here`
+`https://www.linkedin.com/posts/caryee_dmibypravinmishra-devops-aws-ugcPost-7502844610474364928-23Dq/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACP6ElcBF7-kOglrea_3V5oUhVp4NSh-Trc`
 
 ---
 
 #### Screenshot 16 — Published LinkedIn post showing the text and at least one image or proof
 
-Add your screenshot here.
+![Screenshot 16 — Published LinkedIn post showing the text and at least one image or proof](screenshots/assignment-05-screenshot-16.png)
 
 ---
 
@@ -172,13 +231,13 @@ Add your screenshot here.
 
 # Completion Checklist
 
-- [ ] Task 1: Six-subnet VPC/VNet created across two AZs with Terraform (Screenshots 1–3)
-- [ ] Task 2: Tier-specific security rules and load balancers configured (Screenshots 4–7)
-- [ ] Task 3: Web and App Tier VMs deployed with correct public/private placement (Screenshots 8–10)
-- [ ] Task 4: Private MySQL with read replica deployed and app validated end to end (Screenshots 11–15)
-- [ ] Report completed: cloud platform, Terraform structure, diagram, LB DNS (Notes)
-- [ ] LinkedIn post published and URL submitted (Screenshot 16)
-- [ ] No sensitive data exposed
+- [x] Task 1: Six-subnet VPC/VNet created across two AZs with Terraform (Screenshots 1–3)
+- [x] Task 2: Tier-specific security rules and load balancers configured (Screenshots 4–7)
+- [x] Task 3: Web and App Tier VMs deployed with correct public/private placement (Screenshots 8–10)
+- [x] Task 4: Private MySQL with read replica deployed and app validated end to end (Screenshots 11–15)
+- [x] Report completed: cloud platform, Terraform structure, diagram, LB DNS (Notes)
+- [x] LinkedIn post published and URL submitted (Screenshot 16)
+- [x] No sensitive data exposed
 
 ---
 
