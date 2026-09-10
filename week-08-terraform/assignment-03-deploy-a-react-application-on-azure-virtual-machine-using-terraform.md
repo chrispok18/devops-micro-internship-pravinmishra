@@ -137,8 +137,6 @@ Confirm the React application loads through the VM's public IP and navigation wo
 
 Write a short summary of what you built and any issues you encountered and how you resolved them.
 
-Write your answer here.
-
 I built the terraform-react-azure project from scratch, provisioning a resource group, virtual network, subnet, Network Security Group, public IP, and network interface, then automated the initial React app deployment using a cloud-init.sh script passed to the VM via custom_data = base64encode(file(...)). The script was written from the my-react-app repository's README instructions, using sed to inject my name and deployment date non-interactively so the VM could provision without any manual input.
 
 The main issue I hit during provisioning was a SkuNotAvailable error on Standard_B1s in East US — the same capacity problem from an earlier Terraform assignment on this subscription. I resolved it by switching the VM size to Standard_D2ads_v7, which also required updating the OS image SKU to 22_04-lts-gen2, since that VM size only supports Gen2 images.
