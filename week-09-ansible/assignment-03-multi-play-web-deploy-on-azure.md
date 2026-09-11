@@ -20,7 +20,7 @@ Create the `static-web` project directory with `inventory.ini`, `site.yml`, a `f
 
 #### Screenshot 1 — Terminal or editor showing the complete `static-web` folder layout
 
-Add your screenshot here.
+![Screenshot 1 — Terminal or editor showing the complete `static-web` folder layout](screenshots/assignment-03-screenshot-01.png)
 
 ---
 
@@ -34,7 +34,7 @@ Stage `index.html` from `https://github.com/pravinmishraaws/Azure-Static-Website
 
 #### Screenshot 2 — Editor or terminal showing `files/index.html` staged inside the `static-web` project
 
-Add your screenshot here.
+![Screenshot 2 — Editor or terminal showing `files/index.html` staged inside the `static-web` project](screenshots/assignment-03-screenshot-02.png)
 
 ---
 
@@ -48,13 +48,13 @@ Write `site.yml` with three plays: Play 1 (install/start Nginx on `web`), Play 2
 
 #### Screenshot 3 — Editor showing the three plays in `site.yml`
 
-Add your screenshot here.
+![Screenshot 3 — Editor showing the three plays in `site.yml`](screenshots/assignment-03-screenshot-03.png)
 
 ---
 
 #### Screenshot 4 — Editor showing the copy task, file ownership/mode, handler, uri task, and HTTP 200 assertion
 
-Add your screenshot here.
+![Screenshot 4 — Editor showing the copy task, file ownership/mode, handler, uri task, and HTTP 200 assertion](screenshots/assignment-03-screenshot-04.png)
 
 ---
 
@@ -68,13 +68,13 @@ Run `ansible-playbook -i inventory.ini site.yml` and confirm all plays complete 
 
 #### Screenshot 5 — Terminal showing the `ansible-playbook` run and final recap with OK/changed results and no failures
 
-Add your screenshot here.
+![Screenshot 5 — Terminal showing the `ansible-playbook` run and final recap with OK/changed results and no failures](screenshots/assignment-03-screenshot-05.png)
 
 ---
 
 #### Screenshot 6 — Terminal showing the successful localhost URI verification results
 
-Add your screenshot here.
+![Screenshot 6 — Terminal showing the successful localhost URI verification results](screenshots/assignment-03-screenshot-06.png)
 
 ---
 
@@ -88,7 +88,7 @@ Confirm the deployed static website is reachable directly from a web-server publ
 
 #### Screenshot 7 — Browser showing the static website loaded from a web-server public IP
 
-Add your screenshot here.
+![Screenshot 7 — Browser showing the static website loaded from a web-server public IP](screenshots/assignment-03-screenshot-07.png)
 
 ---
 
@@ -96,8 +96,35 @@ Add your screenshot here.
 
 Describe an issue you faced and how you fixed it, what you learned, why installation and deployment were split into separate plays, and one benefit of using `copy` instead of cloning from Git directly.
 
-Write your answer here.
+The main issue faced was in a prior related assignment (provisioning the
+underlying VM), not in this playbook itself: this project reuses the same
+web1 VM and inventory built for the Ansible ad-hoc automation assignment,
+after working through Azure subscription-wide public IP and vCPU core
+quota limits to get that VM running in the first place. Once the VM and
+inventory were in place, this playbook ran cleanly on the first real
+attempt after a passing syntax check.
 
+What I learned: separating a deployment into distinct plays (install,
+deploy, verify) makes each stage independently testable and debuggable.
+When the playbook ran a second consideration would be idempotency — the
+install play only reports "changed" the first time Nginx is actually
+installed, and the copy task only triggers the reload handler when the
+file content actually changes, not on every run.
+
+Installation and deployment are split into separate plays because they
+change at different rates and for different reasons: Nginx installation
+is infrastructure setup that rarely changes once done, while the website
+content is expected to be updated frequently. Keeping them separate means
+re-running a content deployment never risks re-triggering package
+installation logic, and vice versa.
+
+The benefit of using the copy module instead of cloning directly from Git
+on each server is control and consistency: the exact same file, from a
+single known source on the controller, is pushed to every managed host.
+Cloning independently on each server risks each host ending up on a
+different commit or branch if the repo changes between runs, and it also
+means every managed server needs outbound access to GitHub and git
+installed — the copy module needs neither.
 ---
 
 # Submission Instructions
@@ -110,13 +137,13 @@ Write your answer here.
 
 # Completion Checklist
 
-- [ ] Task 1: `static-web` project structure created (Screenshot 1)
-- [ ] Task 2: `index.html` staged under `files/` (Screenshot 2)
-- [ ] Task 3: Three-play `site.yml` written (Screenshots 3–4)
-- [ ] Task 4: Playbook run successfully with no failures (Screenshots 5–6)
-- [ ] Task 5: Site verified manually via browser (Screenshot 7)
-- [ ] Reflection notes written (Notes)
-- [ ] No sensitive data exposed
+- [x] Task 1: `static-web` project structure created (Screenshot 1)
+- [x] Task 2: `index.html` staged under `files/` (Screenshot 2)
+- [x] Task 3: Three-play `site.yml` written (Screenshots 3–4)
+- [x] Task 4: Playbook run successfully with no failures (Screenshots 5–6)
+- [x] Task 5: Site verified manually via browser (Screenshot 7)
+- [x] Reflection notes written (Notes)
+- [x] No sensitive data exposed
 
 ---
 
