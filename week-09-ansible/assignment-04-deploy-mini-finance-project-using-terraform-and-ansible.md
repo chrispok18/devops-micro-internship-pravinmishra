@@ -20,7 +20,7 @@ Create the `mini-finance` project with separate `terraform/` and `ansible/` subd
 
 #### Screenshot 1 — Terminal or editor showing the complete `mini-finance` project tree
 
-Add your screenshot here.
+![Screenshot 1 — Terminal or editor showing the complete `mini-finance` project tree](screenshots/assignment-04-screenshot-01.png)
 
 ---
 
@@ -34,19 +34,22 @@ Provision an Ubuntu 22.04 Standard_B1s VM with a public IP, SSH key authenticati
 
 #### Screenshot 2 — Terminal showing the end of a successful `terraform apply`
 
-Add your screenshot here.
+![Screenshot 2 — Terminal showing the end of a successful `terraform apply`](screenshots/assignment-04-screenshot-02.png)
+
+![Screenshot 2 — Terminal showing the end of a successful `terraform apply`](screenshots/assignment-04-screenshot-02a.png)
+
 
 ---
 
 #### Screenshot 3 — Terminal showing `terraform output public_ip`
 
-Add your screenshot here.
+![Screenshot 3 — Terminal showing `terraform output public_ip`](screenshots/assignment-04-screenshot-03.png)
 
 ---
 
 #### Screenshot 4 — Terraform code or Azure Portal showing NSG inbound rules for ports 22 and 80
 
-Add your screenshot here.
+![Screenshot 4 — Terraform code or Azure Portal showing NSG inbound rules for ports 22 and 80](screenshots/assignment-04-screenshot-04.png)
 
 ---
 
@@ -60,7 +63,7 @@ Connect to the VM with SSH using the injected key and run `hostname` remotely wi
 
 #### Screenshot 5 — Terminal showing the successful passwordless SSH hostname check
 
-Add your screenshot here.
+![Screenshot 5 — Terminal showing the successful passwordless SSH hostname check](screenshots/assignment-04-screenshot-05.png)
 
 ---
 
@@ -74,13 +77,13 @@ Create `ansible/inventory.ini` and a three-play `site.yml` that installs Nginx a
 
 #### Screenshot 6 — Editor showing `inventory.ini` and the three plays in `site.yml`
 
-Add your screenshot here.
+![Screenshot 6 — Editor showing `inventory.ini` and the three plays in `site.yml`](screenshots/assignment-04-screenshot-06.png)
 
 ---
 
 #### Screenshot 7 — Terminal showing `ansible-playbook -i inventory.ini site.yml` with HTTP 200, assertion OK, and no failures
 
-Add your screenshot here.
+![Screenshot 7 — Terminal showing `ansible-playbook -i inventory.ini site.yml` with HTTP 200, assertion OK, and no failures](screenshots/assignment-04-screenshot-07.png)
 
 ---
 
@@ -94,7 +97,7 @@ Confirm the Mini Finance site is publicly accessible and correctly served by Ngi
 
 #### Screenshot 8 — Browser showing the Mini Finance site loaded from `http://<public_ip>` with the URL visible
 
-Add your screenshot here.
+![Screenshot 7 — Terminal showing `ansible-playbook -i inventory.ini site.yml` with HTTP 200, assertion OK, and no failures](screenshots/assignment-04-screenshot-08.png)
 
 ---
 
@@ -102,8 +105,27 @@ Add your screenshot here.
 
 Describe an issue you faced and how you fixed it, and what you learned.
 
-Write your answer here.
+The main issue faced was a hung `git clone` task in Play 2 that appeared to
+freeze indefinitely with no error — it sat unresponsive for hours across
+multiple attempts. Diagnosis ruled out the obvious suspects one by one: VM
+memory/disk were healthy, DNS resolved github.com correctly, and curl could
+reach GitHub over HTTPS fine. The real cause only surfaced by testing a raw
+`git clone` directly on the VM with `GIT_TERMINAL_PROMPT=0`, which forced git
+to fail fast instead of hanging on an invisible credential prompt — revealing
+"terminal prompts disabled" as the actual error. That pointed to git treating
+the repository as requiring authentication, which meant the repo path itself
+was wrong. A web search confirmed the correct repository is
+`pravinmishraaws/mini_finance` (underscore), not `mini-finance-project`
+(hyphen) as originally assumed — GitHub returns a 404 for a truly missing
+repo, and git falls back to demanding credentials rather than failing
+outright, which is what created the silent hang.
 
+What I learned: a "hanging" automation task is rarely actually infinite —
+it usually means something downstream is waiting on input that will never
+come (like a credential prompt with no TTY attached). Testing the exact
+underlying command manually, with tools like `GIT_TERMINAL_PROMPT=0` or a
+`timeout` wrapper, isolates whether the problem is the automation layer or
+the command itself, rather than guessing at network or resource issues.
 ---
 
 # LinkedIn Post (Required)
@@ -138,14 +160,14 @@ Add your screenshot here.
 
 # Completion Checklist
 
-- [ ] Task 1: `mini-finance` project structure created (Screenshot 1)
-- [ ] Task 2: Azure VM and NSG provisioned with Terraform (Screenshots 2–4)
-- [ ] Task 3: Passwordless SSH verified (Screenshot 5)
-- [ ] Task 4: Ansible install/deploy/verify plays run successfully (Screenshots 6–7)
-- [ ] Task 5: Site verified in the browser (Screenshot 8)
-- [ ] Reflection notes written (Notes)
-- [ ] LinkedIn post published and URL submitted
-- [ ] No sensitive data exposed
+- [x] Task 1: `mini-finance` project structure created (Screenshot 1)
+- [x] Task 2: Azure VM and NSG provisioned with Terraform (Screenshots 2–4)
+- [x] Task 3: Passwordless SSH verified (Screenshot 5)
+- [x] Task 4: Ansible install/deploy/verify plays run successfully (Screenshots 6–7)
+- [x] Task 5: Site verified in the browser (Screenshot 8)
+- [x] Reflection notes written (Notes)
+- [x] LinkedIn post published and URL submitted
+- [x] No sensitive data exposed
 
 ---
 

@@ -139,7 +139,7 @@ Week 09 → Ansible
 | 06 | AWS Cloud | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/caryee_dmibypravinmishra-aws-devops-ugcPost-7494514399727161344-5Bmy/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACP6ElcBF7-kOglrea_3V5oUhVp4NSh-Trc | https://medium.com/@chrispok18/from-cost-guardrails-to-a-live-endpoint-what-week-6-of-aws-cloud-taught-me-about-shipping-d23e21462fea |
 | 07 | Azure Cloud | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/caryee_dmibypravinmishra-azure-devops-activity-7499935665317646336-Gk_h?utm_source=share&utm_medium=member_desktop&rcm=ACoAACP6ElcBF7-kOglrea_3V5oUhVp4NSh-Trc | https://medium.com/@chrispok18/hosting-a-website-with-no-server-a-static-site-on-azure-storage-3d16dd0be270?sharedUserId=chrispok18 |
 | 08 | Terraform | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/caryee_dmibypravinmishra-aws-terraform-ugcPost-7502502626606014464-ynAz/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACP6ElcBF7-kOglrea_3V5oUhVp4NSh-Trc | https://medium.com/@chrispok18/deploying-a-react-app-on-azure-with-terraform-a-beginners-walkthrough-2a6a997ad949 |
-| 09 | Ansible | ✅ Completed | ✅ Solved | — | — |
+| 09 | Ansible | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/caryee_dmibypravinmishra-terraform-ansible-ugcPost-7504687986182176768-mgY4/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACP6ElcBF7-kOglrea_3V5oUhVp4NSh-Trc | — |
 | 10 | Azure DevOps (CI/CD) | ⬜ Not Started | ⏳ Pending | — | — |
 | 11 | Docker | ⬜ Not Started | ⏳ Pending | — | — |
 | 12 | Kubernetes | ⬜ Not Started | ⏳ Pending | — | — |
