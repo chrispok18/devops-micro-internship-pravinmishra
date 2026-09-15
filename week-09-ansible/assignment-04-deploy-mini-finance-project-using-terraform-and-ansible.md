@@ -97,7 +97,7 @@ Confirm the Mini Finance site is publicly accessible and correctly served by Ngi
 
 #### Screenshot 8 — Browser showing the Mini Finance site loaded from `http://<public_ip>` with the URL visible
 
-![Screenshot 7 — Terminal showing `ansible-playbook -i inventory.ini site.yml` with HTTP 200, assertion OK, and no failures](screenshots/assignment-04-screenshot-08.png)
+![Screenshot 8 — Terminal showing `ansible-playbook -i inventory.ini site.yml` with HTTP 200, assertion OK, and no failures](screenshots/assignment-04-screenshot-08.png)
 
 ---
 
@@ -140,13 +140,13 @@ Publish a LinkedIn post about the Terraform + Ansible deployment, mentioning the
 
 Paste your LinkedIn post URL here:
 
-`Add your URL here`
+`https://www.linkedin.com/posts/caryee_dmibypravinmishra-terraform-ansible-ugcPost-7504687986182176768-mgY4/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACP6ElcBF7-kOglrea_3V5oUhVp4NSh-Trc`
 
 ---
 
 #### Screenshot — Published LinkedIn post showing the text and at least one image or proof
 
-Add your screenshot here.
+![Screenshot — Published LinkedIn post showing the text and at least one image or proof](screenshots/assignment-04-screenshot-09.png)
 
 ---
 
