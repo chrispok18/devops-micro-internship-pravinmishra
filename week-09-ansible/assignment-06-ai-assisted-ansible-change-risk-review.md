@@ -20,7 +20,7 @@ Confirm every host in your inventory responds to a ping module check, then creat
 
 #### Screenshot 1 — Terminal showing `ansible all -m ping` with every host reachable
 
-Add your screenshot here.
+![Screenshot 1 — Terminal showing `ansible all -m ping` with every host reachable](screenshots/assignment-06-screenshot-01.png)
 
 ---
 
@@ -34,7 +34,7 @@ Create a `CLAUDE.md` that defines the change-review workflow (dry run first, hum
 
 #### Screenshot 2 — `CLAUDE.md` open showing the workflow and safety rules
 
-Add your screenshot here.
+![Screenshot 2 — `CLAUDE.md` open showing the workflow and safety rules](screenshots/assignment-06-screenshot-02.png)
 
 ---
 
@@ -48,7 +48,7 @@ Ask Claude Code to read `CLAUDE.md` and propose a risk-classification plan with 
 
 #### Screenshot 3 — Claude Code showing the four-category risk-classification plan
 
-Add your screenshot here.
+![Screenshot 3 — Claude Code showing the four-category risk-classification plan](screenshots/assignment-06-screenshot-03.png)
 
 ---
 
@@ -62,13 +62,13 @@ Create `ansible-check-review.sh` that runs `ansible-playbook --check --diff`, pa
 
 #### Screenshot 4 — Editor showing the script's task-classification functions
 
-Add your screenshot here.
+![Screenshot 4 — Editor showing the script's task-classification functions](screenshots/assignment-06-screenshot-04.png)
 
 ---
 
 #### Screenshot 5 — Terminal showing `bash -n` passing with no syntax errors
 
-Add your screenshot here.
+![Screenshot 5 — Terminal showing `bash -n` passing with no syntax errors](screenshots/assignment-06-screenshot-05.png)
 
 ---
 
@@ -82,7 +82,7 @@ Run the script against your unmodified playbook and confirm it reports low risk 
 
 #### Screenshot 6 — Terminal output showing the risk report and its overall status
 
-Add your screenshot here.
+![Screenshot 6 — Terminal output showing the risk report and its overall status](screenshots/assignment-06-screenshot-06.png)
 
 ---
 
@@ -96,13 +96,13 @@ Create a Claude Code skill restricted to read-only tools that runs the script, r
 
 #### Screenshot 7 — `SKILL.md` frontmatter showing `allowed-tools` with no `Write`
 
-Add your screenshot here.
+![Screenshot 7 — `SKILL.md` frontmatter showing `allowed-tools` with no `Write`](screenshots/assignment-06-screenshot-07.png)
 
 ---
 
 #### Screenshot 8 — `/ansible-risk-review` output for the baseline playbook
 
-Add your screenshot here.
+![Screenshot 8 — `/ansible-risk-review` output for the baseline playbook](screenshots/assignment-06-screenshot-08.png)
 
 ---
 
@@ -116,13 +116,13 @@ Add one task to your playbook that touches a risk category — a service restart
 
 #### Screenshot 9 — Raw dry-run output showing the new task reporting `changed`
 
-Add your screenshot here.
+![Screenshot 9 — Raw dry-run output showing the new task reporting `changed`](screenshots/assignment-06-screenshot-09.png)
 
 ---
 
 #### Screenshot 10 — `/ansible-risk-review` output showing the risky finding and the recommendation to hold for review
 
-Add your screenshot here.
+![Screenshot 10 — `/ansible-risk-review` output showing the risky finding and the recommendation to hold for review](screenshots/assignment-06-screenshot-10.png)
 
 ---
 
@@ -136,13 +136,13 @@ Review the recommendation, run the playbook for real yourself (never Claude), co
 
 #### Screenshot 11 — Terminal showing the real `ansible-playbook` run applying successfully
 
-Add your screenshot here.
+![Screenshot 11 — Terminal showing the real `ansible-playbook` run applying successfully](screenshots/assignment-06-screenshot-11.png)
 
 ---
 
 #### Screenshot 12 — Second `/ansible-risk-review` output confirming no further changes are pending
 
-Add your screenshot here.
+![Screenshot 12 — Second `/ansible-risk-review` output confirming no further changes are pending](screenshots/assignment-06-screenshot-12.png)
 
 ---
 
@@ -150,7 +150,7 @@ Add your screenshot here.
 
 In one or two sentences, explain why `ansible-playbook --check --diff` deserves the same respect as `terraform plan`, and why the AI skill was allowed to analyze the dry-run output but never allowed to run the playbook for real.
 
-Add your answer here
+`ansible-playbook --check --diff` deserves the same respect as `terraform plan` because both are the only reliable preview of a real production change before it happens — skipping either means finding out what actually broke only after it's already broken. In this project, the AI skill was allowed to run the dry run, parse the report, and explain the risk because that's genuinely useful — pattern-matching and explaining are things it does well and quickly. But it was never allowed to run the real playbook, because applying an infrastructure change is a judgment call with real consequences (downtime, data loss, lockouts), and that decision has to stay with a human who can weigh context the script can't see and who is accountable for the outcome.
 
 ---
 
@@ -166,16 +166,16 @@ Your submission must include:
 
 # Completion Checklist
 
-- [ ] Task 1: Inventory connectivity confirmed (Screenshot 1)
-- [ ] Task 2: `CLAUDE.md` created with workflow and safety rules (Screenshot 2)
-- [ ] Task 3: Four-category risk-classification plan produced before scripting (Screenshot 3)
-- [ ] Task 4: `ansible-check-review.sh` built and passes `bash -n` (Screenshots 4–5)
-- [ ] Task 5: Dry-run review run against the current playbook (Screenshot 6)
-- [ ] Task 6: `/ansible-risk-review` skill created and run (Screenshots 7–8)
-- [ ] Task 7: Risky change introduced and correctly flagged (Screenshots 9–10)
-- [ ] Task 8: Change applied by the human, verified, and summarized (Screenshots 11–12)
-- [ ] Reflection written (Notes)
-- [ ] No sensitive data exposed
+- [x] Task 1: Inventory connectivity confirmed (Screenshot 1)
+- [x] Task 2: `CLAUDE.md` created with workflow and safety rules (Screenshot 2)
+- [x] Task 3: Four-category risk-classification plan produced before scripting (Screenshot 3)
+- [x] Task 4: `ansible-check-review.sh` built and passes `bash -n` (Screenshots 4–5)
+- [x] Task 5: Dry-run review run against the current playbook (Screenshot 6)
+- [x] Task 6: `/ansible-risk-review` skill created and run (Screenshots 7–8)
+- [x] Task 7: Risky change introduced and correctly flagged (Screenshots 9–10)
+- [x] Task 8: Change applied by the human, verified, and summarized (Screenshots 11–12)
+- [x] Reflection written (Notes)
+- [x] No sensitive data exposed
 
 ---
 
