@@ -30,7 +30,7 @@ Create a self-hosted agent pool (e.g. `SelfHostedPool`) in Azure DevOps Organiza
 
 #### Screenshot 1 — Azure DevOps Agent Pools page showing the newly created pool
 
-Add your screenshot here.
+![Screenshot 1 — Azure DevOps Agent Pools page showing the newly created pool](screenshots/assignment-01-screenshot-01.png)
 
 ---
 
@@ -44,13 +44,13 @@ Create an Ubuntu 22.04 (or latest) VM in AWS or Azure with SSH access, and confi
 
 #### Screenshot 2 — Cloud console showing the running Ubuntu VM and its public IP or DNS name
 
-Add your screenshot here.
+![Screenshot 2 — Cloud console showing the running Ubuntu VM and its public IP or DNS name](screenshots/assignment-01-screenshot-02.png)
 
 ---
 
 #### Screenshot 3 — Terminal showing a successful SSH login and Ubuntu version details
 
-Add your screenshot here.
+![Screenshot 3 — Terminal showing a successful SSH login and Ubuntu version details](screenshots/assignment-01-screenshot-03.png)
 
 ---
 
@@ -64,13 +64,13 @@ Download the Linux agent package, register it with your organization/pool/PAT vi
 
 #### Screenshot 4 — Terminal showing successful agent configuration without exposing the PAT
 
-Add your screenshot here.
+![Screenshot 4 — Terminal showing successful agent configuration without exposing the PAT](screenshots/assignment-01-screenshot-04.png)
 
 ---
 
 #### Screenshot 5 — Terminal showing the agent service running successfully
 
-Add your screenshot here.
+![Screenshot 5 — Terminal showing the agent service running successfully](screenshots/assignment-01-screenshot-05.png)
 
 ---
 
@@ -84,7 +84,7 @@ Confirm the agent service is running and the agent shows as Online in the Azure 
 
 #### Screenshot 6 — Agent Pool listing showing the registered agent online
 
-Add your screenshot here.
+![Screenshot 6 — Agent Pool listing showing the registered agent online](screenshots/assignment-01-screenshot-06.png)
 
 ---
 
@@ -98,7 +98,7 @@ Create and run a YAML pipeline targeting the self-hosted pool, running `uname -a
 
 #### Screenshot 7 — Successful test pipeline run output in Azure DevOps showing the Linux commands
 
-Add your screenshot here.
+![Screenshot 7 — Successful test pipeline run output in Azure DevOps showing the Linux commands](screenshots/assignment-01-screenshot-07.png)
 
 ---
 
@@ -106,7 +106,23 @@ Add your screenshot here.
 
 Note the cloud platform used, your Azure DevOps organization/project name, and the agent pool name. Describe any issue you faced and how you resolved it.
 
-Write your answer here.
+Here's the summary section text:
+
+---
+
+**Cloud platform:** AWS (EC2) for the VM; Azure DevOps for the organization/pipelines.
+
+**Azure DevOps organization:** `krisbillion18` (https://dev.azure.com/krisbillion18)
+
+**Project:** `self-hosted-agent-lab`
+
+**Agent pool:** `SelfHostedPool`
+
+**VM:** `SelfHostedAgentVM` (EC2 instance `i-03c8befd750765526`), Ubuntu Server 26.04 LTS, `t3.micro`, region eu-north-1 (Stockholm), public IP `51.20.182.27`
+
+**Agent name:** `self-hosted-agent-1`, registered via a PAT scoped to Agent Pools (Read & manage) and Build (Read & execute), running as a systemd service (`vsts.agent.krisbillion18.SelfHostedPool.self-hosted-agent-1.service`)
+
+**Issue faced and resolution:** SSH connections to the VM timed out even though the security group correctly allowed port 22 from my IP. Inspecting the VPC's route table showed the `0.0.0.0/0` route pointed at an Internet Gateway that no longer existed (status: Blackhole) — there was no Internet Gateway at all in the region. I created a new Internet Gateway, attached it to the VPC, and updated the route table's `0.0.0.0/0` route to point to it. SSH connected successfully afterward, and the rest of the setup (agent install, registration, pipeline run) completed without further issues.
 
 ---
 
@@ -119,14 +135,14 @@ Write your answer here.
 
 # Completion Checklist
 
-- [ ] Task 1: PAT created with required scopes and stored securely
-- [ ] Task 2: Self-hosted agent pool created (Screenshot 1)
-- [ ] Task 3: Ubuntu VM provisioned and SSH verified (Screenshots 2–3)
-- [ ] Task 4: Agent installed, registered, and running as a service (Screenshots 4–5)
-- [ ] Task 5: Agent verified Online (Screenshot 6)
-- [ ] Task 6: Test pipeline run successfully (Screenshot 7)
-- [ ] Platform/org/pool details and issue notes written (Notes)
-- [ ] No secrets exposed
+- [x] Task 1: PAT created with required scopes and stored securely
+- [x] Task 2: Self-hosted agent pool created (Screenshot 1)
+- [x] Task 3: Ubuntu VM provisioned and SSH verified (Screenshots 2–3)
+- [x] Task 4: Agent installed, registered, and running as a service (Screenshots 4–5)
+- [x] Task 5: Agent verified Online (Screenshot 6)
+- [x] Task 6: Test pipeline run successfully (Screenshot 7)
+- [x] Platform/org/pool details and issue notes written (Notes)
+- [x] No secrets exposed
 
 ---
 
