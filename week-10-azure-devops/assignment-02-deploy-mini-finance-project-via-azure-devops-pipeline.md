@@ -20,7 +20,7 @@ Import `https://github.com/pravinmishraaws/Azure-Static-Website` into Azure Repo
 
 #### Screenshot 1 — Azure Repos showing the imported repository files with `index.html` visible
 
-![Screenshot 1 — Azure Repos showing the imported repository files with `index.html` visible](screenshots/assignment-01-screenshot-01.png)
+![Screenshot 1 — Azure Repos showing the imported repository files with `index.html` visible](screenshots/assignment-02-screenshot-01.png)
 
 ---
 
@@ -34,13 +34,13 @@ Provision a Linux VM with Terraform (ports 22/80 open), then use Ansible to inst
 
 #### Screenshot 2 — Terraform output or cloud console showing the running VM and public IP
 
-![Screenshot 2 — Terraform output or cloud console showing the running VM and public IP](screenshots/assignment-01-screenshot-02.png)
+![Screenshot 2 — Terraform output or cloud console showing the running VM and public IP](screenshots/assignment-02-screenshot-02.png)
 
 ---
 
 #### Screenshot 3 — Terminal showing Ansible completed successfully and Nginx is active
 
-![Screenshot 3 — Terminal showing Ansible completed successfully and Nginx is active](screenshots/assignment-01-screenshot-03.png)
+![Screenshot 3 — Terminal showing Ansible completed successfully and Nginx is active](screenshots/assignment-02-screenshot-03.png)
 
 ---
 
@@ -54,7 +54,7 @@ Create the password-based SSH Service Connection `ubuntu-nginx-ssh` pointing to 
 
 #### Screenshot 4 — SSH Service Connection configuration page showing the connection details and successful validation, with the password hidden
 
-![Screenshot 4 — SSH Service Connection configuration page showing the connection details and successful validation, with the password hidden](screenshots/assignment-01-screenshot-04.png)
+![Screenshot 4 — SSH Service Connection configuration page showing the connection details and successful validation, with the password hidden](screenshots/assignment-02-screenshot-04.png)
 
 ---
 
@@ -68,7 +68,7 @@ Write a pipeline triggered on `main` that checks out the repo, copies files to `
 
 #### Screenshot 5 — Pipeline YAML definition open in the Azure DevOps editor
 
-![Screenshot 5 — Pipeline YAML definition open in the Azure DevOps editor](screenshots/assignment-01-screenshot-05.png)
+![Screenshot 5 — Pipeline YAML definition open in the Azure DevOps editor](screenshots/assignment-02-screenshot-05.png)
 
 ---
 
@@ -82,13 +82,19 @@ Confirm the pipeline run succeeded (checkout, SSH connection, file transfer, rem
 
 #### Screenshot 6 — Successful Azure DevOps pipeline run log summary
 
-![Screenshot 6 — Successful Azure DevOps pipeline run log summary](screenshots/assignment-01-screenshot-06.png)
+First run failed on the SSH connection due to a truncated private key:
+
+![Screenshot 6a — Failed pipeline run](screenshots/assignment-02-screenshot-06a.png)
+
+After fixing the service connection, the pipeline ran successfully:
+
+![Screenshot 6b — Successful pipeline run](screenshots/assignment-02-screenshot-06b.png)
 
 ---
 
 #### Screenshot 7 — Browser showing the deployed website with the VM public IP visible
 
-![Screenshot 7 — Browser showing the deployed website with the VM public IP visible](screenshots/assignment-01-screenshot-07.png)
+![Screenshot 7 — Browser showing the deployed website with the VM public IP visible](screenshots/assignment-02-screenshot-07.png)
 
 ---
 
