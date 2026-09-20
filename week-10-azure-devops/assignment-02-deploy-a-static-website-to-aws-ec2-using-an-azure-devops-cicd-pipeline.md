@@ -54,7 +54,7 @@ Create an Azure DevOps SSH Service Connection that can connect to the target EC2
 
 ### Screenshot 2 — SSH Service Connection
 
-![Screenshot 2 — SSH Service Connection `ubuntu-nginx-ssh` overview](screenshots/assignment-02-screenshot-04.png)
+![Screenshot 2 — SSH Service Connection ubuntu-nginx-ssh overview](screenshots/assignment-02-screenshot-04b.png)
 
 ---
 
@@ -68,7 +68,7 @@ Create an Azure DevOps YAML pipeline that deploys the Azure Static Website to th
 
 ### Screenshot 3 — Azure Pipelines YAML
 
-![Screenshot 3 — azure-pipelines.yml open in the Azure Repos editor](screenshots/assignment-02-screenshot-05.png)
+![Screenshot 3 — azure-pipelines.yml showing trigger, pool, variables, checkout, pipeline information, CopyFilesOverSSH@0 and SSH@0](screenshots/assignment-02-screenshot-03a.png)
 
 ---
 
@@ -82,7 +82,13 @@ Run the Azure DevOps pipeline and confirm that the website files are transferred
 
 ### Screenshot 4 — Successful Pipeline Run
 
-![Screenshot 4 — Successful pipeline run](screenshots/assignment-02-screenshot-06b.png)
+![Screenshot 4 — Successful pipeline run summary, run 20260920.3](screenshots/assignment-02-screenshot-04c.png)
+
+![Screenshot 4 — Pipeline information step showing Submitted by: Christian Aryee, all steps green](screenshots/assignment-02-screenshot-04d.png)
+
+### First attempt (failed before I fixed the SSH key)
+
+![First run failed with Cannot parse privateKey: Unsupported key format](screenshots/assignment-02-screenshot-06aa.png)
 
 ---
 
@@ -96,7 +102,11 @@ Confirm that the website is accessible through the EC2 public IP address and tha
 
 ### Screenshot 5 — Deployed Azure Static Website
 
-![Screenshot 5 — Deployed website with the EC2 public IP in the address bar](screenshots/assignment-02-screenshot-07.png)
+![Screenshot 5 — Deployed website with the EC2 public IP in the address bar and the updated CI/CD deployed footer](screenshots/assignment-02-screenshot-05b.png)
+
+### Automatic trigger proof
+
+![Pipeline run 20260920.1 started by Individual CI after the commit Update footer to test auto-trigger](screenshots/assignment-02-screenshot-05c.png)
 
 ## Final Website URL
 
@@ -110,17 +120,19 @@ I imported the Azure Static Website into Azure Repos, then used Terraform to pro
 
 Issue faced: the first run failed with "Cannot parse privateKey: Unsupported key format". The key was valid, but when I pasted it into the Service Connection I had copied only the base64 body and missed the `-----BEGIN-----` and `-----END-----` lines. I fixed it by using the "Upload SSH private key file" option instead of pasting. After re-saving the connection, the pipeline succeeded end to end.
 
+To prove the automatic trigger, I changed the website footer and committed to `main`. Run 20260920.1 started by itself as an Individual CI run and the live site updated. A later commit silenced curl's progress output in the verify step, and run 20260920.3 finished with no errors.
+
 ---
 
 # LinkedIn Requirement
 
 ## LinkedIn Post Screenshot
 
-Add your LinkedIn post screenshot here.
+![LinkedIn Post Screenshot](screenshots/assignment-02-screenshot-08.png)
 
 ## LinkedIn Post URL
 
-[Paste your public LinkedIn post URL here]
+[LinkedIn Post URL](https://www.linkedin.com/posts/caryee_dmibypravinmishra-devops-terraform-ugcPost-7507477580737007616-bWZ7/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACP6ElcBF7-kOglrea_3V5oUhVp4NSh-Trc)
 
 ---
 
