@@ -37,7 +37,7 @@ Add a screenshot of Azure Repos showing:
 * `main` branch
 * Project files
 
-Add your screenshot here.
+![Screenshot 1 — Imported React Project in Azure Repos](screenshots/assignment-03-screenshot-01.png)
 
 ---
 
@@ -81,7 +81,13 @@ Add a screenshot of the Azure Pipeline YAML open in the editor showing:
 * Publish stage
 * Deploy stage
 
-Add your screenshot here.
+![Screenshot 2 — Multi-Stage Pipeline YAMLs](screenshots/assignment-03-screenshot-02a.png)
+
+![Screenshot 2 — Multi-Stage Pipeline YAMLs](screenshots/assignment-03-screenshot-02b.png)
+
+![Screenshot 2 — Multi-Stage Pipeline YAMLs](screenshots/assignment-03-screenshot-02c.png)
+
+![Screenshot 2 — Multi-Stage Pipeline YAMLs](screenshots/assignment-03-screenshot-02d.png)
 
 > Do not expose passwords, private keys, tokens, or cloud credentials.
 
@@ -104,7 +110,7 @@ Add a screenshot of one Azure DevOps pipeline run showing all four stages succee
 * Publish
 * Deploy
 
-Add your screenshot here.
+![Screenshot 3 — Successful Multi-Stage Pipeline Run](screenshots/assignment-03-screenshot-03.png)
 
 ---
 
@@ -122,7 +128,7 @@ Add a screenshot of the pipeline SSH verification log or VM terminal showing the
 
 `/var/www/html`
 
-Add your screenshot here.
+![Screenshot 4 — Post-Deployment Contents of /var/www/html](screenshots/assignment-03-screenshot-04.png)
 
 ---
 
@@ -143,15 +149,15 @@ Add a browser screenshot showing:
 * Your Full Name
 * Deployment date
 
-Add your screenshot here.
+![Screenshot 5 — Deployed React Application](screenshots/assignment-03-screenshot-05.png)
 
 ## Final Application URL
 
-`http://<vm-public-ip>`
+`http://51.20.89.154`
 
 Replace the placeholder and paste your final application URL below:
 
-[Paste your final application URL here.]
+http://51.20.89.154
 
 ---
 
@@ -159,7 +165,7 @@ Replace the placeholder and paste your final application URL below:
 
 Write a short explanation of the CI/CD workflow you created.
 
-[Write your summary here.]
+I built a four-stage Azure DevOps pipeline (Build → Test → Publish → Deploy) that automatically deploys a React application to an Nginx web server whenever a commit is pushed to main. The Build stage installs Node.js, runs npm run build, and publishes the compiled output as a pipeline artifact. The Test stage reinstalls dependencies independently and runs the test suite in non-interactive CI mode, so a broken build never reaches deployment. The Publish stage downloads the build artifact, verifies index.html and the static assets are present, and republishes it as an approved deployment package. The Deploy stage downloads that package, copies it to /var/www/html on the target VM over SSH using CopyFilesOverSSH@0, then runs a remote verification step confirming the files exist, Nginx is active, and the site returns an HTTP 200 response. Each stage only runs if the previous one succeeded, so a failure anywhere stops the release before it reaches the live server. Along the way I resolved an agent out-of-memory crash (fixed by adding swap space to the pipeline agent VM) and an SSH connection timeout caused by the target VM's security group not allowing traffic from the agent's IP.
 
 ---
 
@@ -174,11 +180,11 @@ Add a screenshot of your LinkedIn post showing:
 * Post text
 * At least one image or link
 
-Add your screenshot here.
+![Screenshot 6 — LinkedIn Post](screenshots/assignment-03-screenshot-06.png)
 
 ## LinkedIn Post URL
 
-[Paste your public LinkedIn post URL here.]
+https://www.linkedin.com/posts/caryee_dmibypravinmishra-devops-cicd-ugcPost-7508292489582321664-mFBU/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACP6ElcBF7-kOglrea_3V5oUhVp4NSh-Trc
 
 > Do not expose VM passwords, tokens, private keys, cloud credentials, or other sensitive information.
 
@@ -199,27 +205,27 @@ Add your screenshot here.
 
 # Completion Checklist
 
-* [ ] All tasks were completed in sequence
-* [ ] The correct React repository was imported into Azure Repos
-* [ ] Your Full Name and date were added to the application
-* [ ] The pipeline YAML was authored and committed to the repository
-* [ ] Commits to `main` trigger the pipeline automatically
-* [ ] The pipeline contains Build, Test, Publish, and Deploy stages
-* [ ] All four stages succeeded in the same pipeline run
-* [ ] The production build moved between stages as a pipeline artifact
-* [ ] The Deploy stage used the SSH Service Connection
-* [ ] No password or secret is stored in the YAML
-* [ ] `index.html` is directly inside `/var/www/html`
-* [ ] Raw React source code was not deployed to the Nginx web root
-* [ ] `node_modules/` was not deployed to the Nginx web root
-* [ ] Nginx is active
-* [ ] The application opens through the VM public IP address
-* [ ] Your Full Name and date are visible in the browser screenshot
-* [ ] Screenshots 1–6 are included and readable
-* [ ] No password, token, private key, account ID, or other secret is visible
-* [ ] The final application URL is included
-* [ ] The LinkedIn post is published
-* [ ] The LinkedIn post URL is included
+* [x] All tasks were completed in sequence
+* [x] The correct React repository was imported into Azure Repos
+* [x] Your Full Name and date were added to the application
+* [x] The pipeline YAML was authored and committed to the repository
+* [x] Commits to `main` trigger the pipeline automatically
+* [x] The pipeline contains Build, Test, Publish, and Deploy stages
+* [x] All four stages succeeded in the same pipeline run
+* [x] The production build moved between stages as a pipeline artifact
+* [x] The Deploy stage used the SSH Service Connection
+* [x] No password or secret is stored in the YAML
+* [x] `index.html` is directly inside `/var/www/html`
+* [x] Raw React source code was not deployed to the Nginx web root
+* [x] `node_modules/` was not deployed to the Nginx web root
+* [x] Nginx is active
+* [x] The application opens through the VM public IP address
+* [x] Your Full Name and date are visible in the browser screenshot
+* [x] Screenshots 1–6 are included and readable
+* [x] No password, token, private key, account ID, or other secret is visible
+* [x] The final application URL is included
+* [x] The LinkedIn post is published
+* [x] The LinkedIn post URL is included
 
 ---
 
