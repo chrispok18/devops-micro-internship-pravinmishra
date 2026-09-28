@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "deny": [
+      "Edit",
+      "Write",
+      "NotebookEdit",
+      "Bash(git push:*)",
+      "Bash(git commit:*)",
+      "Bash(az pipelines run:*)",
+      "Bash(az pipelines build queue:*)",
+      "Bash(az pipelines runs cancel:*)",
+      "Bash(az pipelines delete:*)",
+      "Bash(az pipelines update:*)",
+      "Bash(az devops service-endpoint:*)",
+      "Bash(az pipelines variable-group:*)",
+      "Bash(terraform:*)",
+      "Bash(ansible:*)",
+      "Bash(ansible-playbook:*)",
+      "Bash(curl:*)",
+      "Bash(rm:*)",
+      "Read(~/.ssh/**)",
+      "Read(**/*.pem)",
+      "Read(**/.env)",
+      "Read(~/.azure/**)",
+      "Read(~/.git-credentials)"
+    ]
+  }
+}

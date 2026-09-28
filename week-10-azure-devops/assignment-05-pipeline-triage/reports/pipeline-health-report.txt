@@ -1,0 +1,55 @@
+========================================
+CI/CD Dual-Pipeline Failure Triage Report
+========================================
+Full Name: Christian Aryee
+Timestamp: 2026-09-28T19:26:40Z
+Provider: Azure DevOps (EpicBook-Deployment)
+
+----------------------------------------
+Pipeline: EpicBook-Infra-Pipeline (ID: 4)
+Run ID: 11 (build 20260925.1)
+Branch: main
+Status: completed
+Result: succeeded
+Completion Time: 2026-09-25T20:57:22.3168329Z
+Failed Step(s): none
+Logs Retrieved: 26 -> infra-last-run.log
+
+[PASS] EpicBook-Infra-Pipeline: no Authentication, authorization or SSH failure
+[PASS] EpicBook-Infra-Pipeline: no Agent availability, timeout or queue failure
+[PASS] EpicBook-Infra-Pipeline: no Terraform infrastructure or provisioning failure
+[PASS] EpicBook-Infra-Pipeline: no Dependency installation failure
+[PASS] EpicBook-Infra-Pipeline: no Build or compilation failure
+[PASS] EpicBook-Infra-Pipeline: no Test failure
+[PASS] EpicBook-Infra-Pipeline: no Ansible, Nginx or application deployment failure
+[PASS] EpicBook-Infra-Pipeline: Azure DevOps result is 'succeeded'
+
+----------------------------------------
+Pipeline: EpicBook-App-Pipeline (ID: 5)
+Run ID: 14 (build 20260928.2)
+Branch: drill/pipeline-failure
+Status: completed
+Result: succeeded
+Completion Time: 2026-09-28T19:24:32.4978706Z
+Failed Step(s): none
+Logs Retrieved: 26 -> app-last-run.log
+
+[PASS] EpicBook-App-Pipeline: no Authentication, authorization or SSH failure
+[PASS] EpicBook-App-Pipeline: no Agent availability, timeout or queue failure
+[PASS] EpicBook-App-Pipeline: no Terraform infrastructure or provisioning failure
+[PASS] EpicBook-App-Pipeline: no Dependency installation failure
+[PASS] EpicBook-App-Pipeline: no Build or compilation failure
+[PASS] EpicBook-App-Pipeline: no Test failure
+[PASS] EpicBook-App-Pipeline: no Ansible, Nginx or application deployment failure
+[PASS] EpicBook-App-Pipeline: Azure DevOps result is 'succeeded'
+
+
+Summary:
+PASS: 16
+WARN: 0
+FAIL: 0
+ERROR: 0
+Overall Status: HEALTHY
+Script Exit Code: 0
+Report File: /mnt/c/Users/Waddl/devops-micro-internship-pravinmishra/week-10-azure-devops/assignment-05-pipeline-triage/reports/pipeline-health-report.txt
+Raw Log Files: /mnt/c/Users/Waddl/devops-micro-internship-pravinmishra/week-10-azure-devops/assignment-05-pipeline-triage/reports/infra-last-run.log, /mnt/c/Users/Waddl/devops-micro-internship-pravinmishra/week-10-azure-devops/assignment-05-pipeline-triage/reports/app-last-run.log

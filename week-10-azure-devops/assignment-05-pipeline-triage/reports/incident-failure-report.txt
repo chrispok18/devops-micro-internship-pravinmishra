@@ -1,0 +1,67 @@
+========================================
+CI/CD Dual-Pipeline Failure Triage Report
+========================================
+Full Name: Christian Aryee
+Timestamp: 2026-09-28T19:02:22Z
+Provider: Azure DevOps (EpicBook-Deployment)
+
+----------------------------------------
+Pipeline: EpicBook-Infra-Pipeline (ID: 4)
+Run ID: 11 (build 20260925.1)
+Branch: main
+Status: completed
+Result: succeeded
+Completion Time: 2026-09-25T20:57:22.3168329Z
+Failed Step(s): none
+Logs Retrieved: 26 -> infra-last-run.log
+
+[PASS] EpicBook-Infra-Pipeline: no Authentication, authorization or SSH failure
+[PASS] EpicBook-Infra-Pipeline: no Agent availability, timeout or queue failure
+[PASS] EpicBook-Infra-Pipeline: no Terraform infrastructure or provisioning failure
+[PASS] EpicBook-Infra-Pipeline: no Dependency installation failure
+[PASS] EpicBook-Infra-Pipeline: no Build or compilation failure
+[PASS] EpicBook-Infra-Pipeline: no Test failure
+[PASS] EpicBook-Infra-Pipeline: no Ansible, Nginx or application deployment failure
+[PASS] EpicBook-Infra-Pipeline: Azure DevOps result is 'succeeded'
+
+----------------------------------------
+Pipeline: EpicBook-App-Pipeline (ID: 5)
+Run ID: 13 (build 20260928.1)
+Branch: drill/pipeline-failure
+Status: completed
+Result: failed
+Completion Time: 2026-09-28T18:48:25.7407536Z
+Failed Step(s): Dependency check (npm ci)
+Logs Retrieved: 10 -> app-last-run.log
+
+[PASS] EpicBook-App-Pipeline: no Authentication, authorization or SSH failure
+[PASS] EpicBook-App-Pipeline: no Agent availability, timeout or queue failure
+[PASS] EpicBook-App-Pipeline: no Terraform infrastructure or provisioning failure
+[FAIL] EpicBook-App-Pipeline: Dependency installation failure
+       Evidence: 2026-09-28T18:48:14.3543384Z npm ERR! code E404
+[PASS] EpicBook-App-Pipeline: no Build or compilation failure
+[PASS] EpicBook-App-Pipeline: no Test failure
+[PASS] EpicBook-App-Pipeline: no Ansible, Nginx or application deployment failure
+[PASS] EpicBook-App-Pipeline: failed result is explained by the category above
+
+
+Summary:
+PASS: 15
+WARN: 0
+FAIL: 1
+ERROR: 0
+Overall Status: FAIL
+Script Exit Code: 2
+Report File: /mnt/c/Users/Waddl/devops-micro-internship-pravinmishra/week-10-azure-devops/assignment-05-pipeline-triage/reports/pipeline-health-report.txt
+Raw Log Files: /mnt/c/Users/Waddl/devops-micro-internship-pravinmishra/week-10-azure-devops/assignment-05-pipeline-triage/reports/infra-last-run.log, /mnt/c/Users/Waddl/devops-micro-internship-pravinmishra/week-10-azure-devops/assignment-05-pipeline-triage/reports/app-last-run.log
+
+----------------------------------------
+Diagnosis (/pipeline-triage, reviewed by Christian Aryee)
+----------------------------------------
+Affected Pipeline: EpicBook-App-Pipeline (ID 5), run 13, branch drill/pipeline-failure
+Failure Category: Dependency installation failure
+Evidence: npm ERR! code E404 / npm ERR! 404 'epicbook-drill-missing-pkg@^9.9.9' is not in this registry.
+Likely Cause: package.json on drill/pipeline-failure lists epicbook-drill-missing-pkg@^9.9.9, which does not exist on the npm registry, so npm ci failed in the Validate stage before any deployment ran.
+Recommended Human Action: remove the epicbook-drill-missing-pkg entry from package.json on drill/pipeline-failure, commit, push, and re-run EpicBook-App-Pipeline on that branch.
+Verification: confirm the new App Pipeline run succeeds, then re-run /pipeline-triage and expect Overall Status HEALTHY with exit code 0.
+Claude applied no changes; the fix is applied manually by the engineer.

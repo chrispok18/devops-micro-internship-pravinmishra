@@ -1,0 +1,5 @@
+# Raw pipeline logs can contain organization details - keep them out of Git
+reports/*.log
+reports/.evidence-*
+reports/.meta.json
+reports/.log.txt
