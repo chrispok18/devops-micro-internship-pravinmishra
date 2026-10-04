@@ -20,49 +20,49 @@ Create a Docker Hub repository (`my-react-app`), log in from the CLI, tag and pu
 
 #### Screenshot 1 — Docker Hub repository (`my-react-app`)
 
-Add your screenshot here.
+![Screenshot 1 — Docker Hub repository (`my-react-app`)](screenshots/assignment-05-screenshot-01.png)
 
 ---
 
 #### Screenshot 2 — Successful `docker login`
 
-Add your screenshot here.
+![Screenshot 2 — Successful `docker login`)](screenshots/assignment-05-screenshot-02.png)
 
 ---
 
 #### Screenshot 3 — Successful `docker tag`
 
-Add your screenshot here.
+![Screenshot 3 — Successful `docker tag`)](screenshots/assignment-05-screenshot-03.png)
 
 ---
 
 #### Screenshot 4 — Successful `docker push`
 
-Add your screenshot here.
+![Screenshot 4 — Successful `docker push`](screenshots/assignment-05-screenshot-04.png)
 
 ---
 
 #### Screenshot 5 — Docker Hub repository showing the uploaded image
 
-Add your screenshot here.
+![Screenshot 5 — Docker Hub repository showing the uploaded image](screenshots/assignment-05-screenshot-05.png)
 
 ---
 
 #### Screenshot 6 — Successful `docker pull`
 
-Add your screenshot here.
+![Screenshot 6 — Successful `docker pull`](screenshots/assignment-05-screenshot-06.png)
 
 ---
 
 #### Screenshot 7 — Output of `docker ps`
 
-Add your screenshot here.
+![Screenshot 7 — Output of `docker ps`](screenshots/assignment-05-screenshot-07.png)
 
 ---
 
 #### Screenshot 8 — Browser displaying the running React application
 
-Add your screenshot here.
+![Screenshot 8 — Browser displaying the running React application](screenshots/assignment-05-screenshot-08.png)
 
 ---
 
@@ -78,13 +78,13 @@ Create a LinkedIn post covering the assignment title, the Docker Hub repository 
 
 Paste your LinkedIn post URL here:
 
-`Add your URL here`
+`https://www.linkedin.com/posts/caryee_dockerhub-publishing-ugcPost-7512599390734221313-G6-m/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACP6ElcBF7-kOglrea_3V5oUhVp4NSh-Trc`
 
 ---
 
 #### Screenshot — Published LinkedIn post
 
-Add your screenshot here.
+![Screenshot — Published LinkedIn post](screenshots/assignment-05-screenshot-09.png)
 
 ---
 
@@ -99,11 +99,11 @@ Add your screenshot here.
 
 # Completion Checklist
 
-- [ ] Docker Hub account and repository created
-- [ ] Docker image tagged and pushed successfully (Screenshots 1–5)
-- [ ] Docker image pulled and container run successfully (Screenshots 6–7)
-- [ ] React application accessible in the browser (Screenshot 8)
-- [ ] No sensitive information exposed
+- [x] Docker Hub account and repository created
+- [x] Docker image tagged and pushed successfully (Screenshots 1–5)
+- [x] Docker image pulled and container run successfully (Screenshots 6–7)
+- [x] React application accessible in the browser (Screenshot 8)
+- [x] No sensitive information exposed
 
 ---
 
