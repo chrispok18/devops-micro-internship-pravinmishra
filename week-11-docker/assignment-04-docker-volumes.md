@@ -20,61 +20,61 @@ Run an Nginx container (`myweb`) with a Bind Mount from `~/nginx-logs` to `/var/
 
 #### Screenshot 1 — Output of `docker images`
 
-Add your screenshot here.
+![Screenshot 1 — Output of `docker images`](screenshots/assignment-04-screenshot-01.png)
 
 ---
 
 #### Screenshot 2 — Output of `docker search nginx`
 
-Add your screenshot here.
+![Screenshot 2 — Output of `docker search nginx`](screenshots/assignment-04-screenshot-02.png)
 
 ---
 
 #### Screenshot 3 — Successful `docker pull nginx` (if applicable)
 
-Add your screenshot here.
+![Screenshot 3 — Successful `docker pull nginx` (if applicable)](screenshots/assignment-04-screenshot-03.png)
 
 ---
 
 #### Screenshot 4 — Creation of the `~/nginx-logs` directory
 
-Add your screenshot here.
+![Screenshot 4 — Creation of the `~/nginx-logs` directory](screenshots/assignment-04-screenshot-04.png)
 
 ---
 
 #### Screenshot 5 — Output of `docker run` with the Bind Mount
 
-Add your screenshot here.
+![Screenshot 5 — Output of `docker run` with the Bind Mount](screenshots/assignment-04-screenshot-05.png)
 
 ---
 
 #### Screenshot 6 — Output of `docker ps` showing the running `myweb` container
 
-Add your screenshot here.
+![Screenshot 6 — Output of `docker ps` showing the running `myweb` container](screenshots/assignment-04-screenshot-06.png)
 
 ---
 
 #### Screenshot 7 — Browser displaying the Nginx Welcome Page
 
-Add your screenshot here.
+![Screenshot 7 — Browser displaying the Nginx Welcome Page](screenshots/assignment-04-screenshot-07.png)
 
 ---
 
 #### Screenshot 8 — Output of `ls ~/nginx-logs` showing `access.log` and `error.log`
 
-Add your screenshot here.
+![Screenshot 8 — Output of `ls ~/nginx-logs` showing `access.log` and `error.log`](screenshots/assignment-04-screenshot-08.png)
 
 ---
 
 #### Screenshot 9 — Successful removal of the container
 
-Add your screenshot here.
+![Screenshot 9 — Successful removal of the container](screenshots/assignment-04-screenshot-09.png)
 
 ---
 
 #### Screenshot 10 — Output of `ls ~/nginx-logs` confirming the log files remain after the container has been removed
 
-Add your screenshot here.
+![Screenshot 10 — Output of `ls ~/nginx-logs` confirming the log files remain after the container has been removed](screenshots/assignment-04-screenshot-10.png)
 
 ---
 
@@ -88,73 +88,72 @@ Create a custom network `mynetwork` and a Docker volume `shared-data`, build and
 
 #### Screenshot 1 — Project folder structure
 
-Add your screenshot here.
+![Screenshot 1 — Project folder structure](screenshots/assignment-04b-screenshot-01.png)
 
 ---
 
 #### Screenshot 2 — Output of `docker network create mynetwork`
 
-Add your screenshot here.
+![Screenshot 2 — Output of `docker network create mynetwork`](screenshots/assignment-04b-screenshot-02.png)
 
 ---
 
 #### Screenshot 3 — Output of `docker volume create shared-data`
 
-Add your screenshot here.
+![Screenshot 3 — Output of `docker volume create shared-data`](screenshots/assignment-04b-screenshot-03.png)
 
 ---
 
 #### Screenshot 4 — Backend Dockerfile
 
-Add your screenshot here.
+![Screenshot 4 — Backend Dockerfile](screenshots/assignment-04b-screenshot-04.png)
 
 ---
 
 #### Screenshot 5 — Successful backend image build
 
-Add your screenshot here.
+![Screenshot 5 — Successful backend image build](screenshots/assignment-04b-screenshot-05.png)
 
 ---
 
 #### Screenshot 6 — Frontend Dockerfile
 
-Add your screenshot here.
+![Screenshot 6 — Frontend Dockerfile](screenshots/assignment-04b-screenshot-06.png)
 
 ---
 
 #### Screenshot 7 — Successful frontend image build
 
-Add your screenshot here.
+![Screenshot 7 — Successful frontend image build](screenshots/assignment-04b-screenshot-07.png)
 
 ---
 
 #### Screenshot 8 — Output of `docker ps` showing both containers
 
-Add your screenshot here.
+![Screenshot 8 — Output of `docker ps` showing both containers](screenshots/assignment-04b-screenshot-08.png)
 
 ---
 
 #### Screenshot 9 — Successful execution of `docker exec backend curl http://localhost/write`
 
-Add your screenshot here.
+![Screenshot 9 — Successful execution of `docker exec backend curl http://localhost/write`](screenshots/assignment-04b-screenshot-09.png)
 
 ---
 
 #### Screenshot 10 — Browser displaying "Hello from Backend!"
 
-Add your screenshot here.
-
+![Screenshot 10 — Browser displaying "Hello from Backend!"](screenshots/assignment-04b-screenshot-10.png)
 ---
 
 #### Screenshot 11 — Browser displaying "Test Data 1" after the first update
 
-Add your screenshot here.
+![Screenshot 11 — Browser displaying "Test Data 1" after the first update](screenshots/assignment-04b-screenshot-11.png)
 
 ---
 
 #### Screenshot 12 — Browser displaying "Test Data 2 - New Update" after the second update
 
-Add your screenshot here.
+![Screenshot 12 — Browser displaying "Test Data 2 - New Update" after the second update](screenshots/assignment-04b-screenshot-12.png)
 
 ---
 
@@ -190,9 +189,9 @@ Add your screenshot here.
 
 # Completion Checklist
 
-- [ ] Task 1: Bind-mounted persistent logs verified before and after container removal (Screenshots 1–10)
-- [ ] Task 2: Docker volume shared between frontend and backend verified (Screenshots 1–12)
-- [ ] No sensitive information exposed
+- [x] Task 1: Bind-mounted persistent logs verified before and after container removal (Screenshots 1–10)
+- [x] Task 2: Docker volume shared between frontend and backend verified (Screenshots 1–12)
+- [x] No sensitive information exposed
 
 ---
 
