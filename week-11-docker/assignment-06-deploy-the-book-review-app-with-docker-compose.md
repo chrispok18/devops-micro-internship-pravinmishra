@@ -190,9 +190,10 @@ Verify that the Book Review App works through the browser.
 
 Add a browser screenshot showing successful user registration or login.
 
-Add your full name as a clear caption directly below the screenshot.
 
 ![Screenshot 12 — Successful Registration or Login](screenshots/assignment-06-screenshot-12.png)
+
+*Christian Aryee*
 
 ---
 
@@ -200,9 +201,10 @@ Add your full name as a clear caption directly below the screenshot.
 
 Add a browser screenshot showing a created book review visible in the application.
 
-Add your full name as a clear caption directly below the screenshot.
 
 ![Screenshot 13 — Created Book Review](screenshots/assignment-06-screenshot-13.png)
+
+*Christian Aryee*
 
 ---
 
@@ -229,9 +231,10 @@ Verify that MySQL data remains after a non-destructive Docker Compose down/up cy
 
 Add a browser screenshot showing the registered user or created review before the down/up cycle.
 
-Add your full name as a clear caption directly below the screenshot.
 
 ![Screenshot 15 — Data Before Restart](screenshots/assignment-06-screenshot-15.png)
+
+*Christian Aryee*
 
 ---
 
@@ -255,9 +258,10 @@ Do not use `docker compose down -v`.
 
 Add a browser screenshot showing the same registered user or review after the stack restarts.
 
-Add your full name as a clear caption directly below the screenshot.
 
-![Screenshot 16 — Non-Destructive Stack Restart](screenshots/assignment-06-screenshot-17.png)
+![Screenshot 17 — Data After Restart](screenshots/assignment-06-screenshot-17.png)
+
+*Christian Aryee*
 
 ---
 
@@ -278,6 +282,7 @@ Write a short explanation of 5–8 lines covering:
 - Why a full reset must not be used before persistence evidence is captured
 
 docker compose down stops and removes the stack's containers and its default network, but it leaves named volumes like mysql_data untouched. That is the right choice when I want to keep MySQL data, because the database files live in the volume rather than inside the container, so new containers mount the same data on the next up. I proved this by running down then up -d: my registered user and both reviews were still there. docker compose down -v also deletes the named volumes, which permanently wipes every table, user and review stored in MySQL. A full reset like that is useful for starting a development database from scratch, re-running seed data, or fixing a volume created with the wrong credentials (MySQL only reads MYSQL_USER/MYSQL_PASSWORD the first time it initialises a volume). It must never be used before persistence evidence is captured, because it destroys the very data the proof depends on, and that cannot be undone. In short: down is a safe restart, while down -v is a factory reset.
+
 ---
 
 # Final Public Frontend URL
