@@ -169,13 +169,13 @@ Create a LinkedIn post covering the assignment, Docker Hub repository, steps per
 
 Paste your LinkedIn post URL here:
 
-`Add your URL here`
+_Optional — not posted for this assignment._
 
 ---
 
 #### Screenshot — Published LinkedIn post
 
-Add your screenshot here.
+_Optional — not posted for this assignment._
 
 ---
 
