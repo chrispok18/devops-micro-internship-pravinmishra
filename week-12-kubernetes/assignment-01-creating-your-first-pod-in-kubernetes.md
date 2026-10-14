@@ -20,7 +20,7 @@ Create the `~/k8s-labs/pods` working directory for all Pod-related files.
 
 #### Screenshot 1 — Terminal showing the `~/k8s-labs/pods` working directory
 
-Add your screenshot here.
+![Screenshot 1 — Terminal showing the `~/k8s-labs/pods` working directory](screenshots/assignment-01-screenshot-01.png)
 
 ---
 
@@ -34,7 +34,7 @@ Create `nginx-pod` with `kubectl run --image=nginx`, verify it reaches Running, 
 
 #### Screenshot 2 — Terminal showing `nginx-pod` in Running state before deletion
 
-Add your screenshot here.
+![Screenshot 2 — Terminal showing `nginx-pod` in Running state before deletion](screenshots/assignment-01-screenshot-02.png)
 
 ---
 
@@ -48,7 +48,11 @@ Write `nginx-pod.yaml` (apiVersion `v1`, kind `Pod`, label `app: nginx`, contain
 
 #### Screenshot 3 — `nginx-pod.yaml` and terminal output showing `nginx-pod` in Running state
 
-Add your screenshot here.
+![Screenshot 3 — `nginx-pod.yaml` and terminal output showing `nginx-pod` in Running state](screenshots/assignment-01-screenshot-03.png)
+
+Imperative vs declarative
+With the imperative method, I gave Kubernetes a direct order: kubectl run nginx-pod --image=nginx. It was quick and good for testing, but it left no record of what I created. To repeat it, I’d have to remember the exact command.
+With the declarative method, I wrote the Pod I wanted into nginx-pod.yaml and ran kubectl apply -f. Kubernetes read the file and made the cluster match it. The file can be saved in Git, reviewed by teammates and applied again anytime, with the same result every time. That’s why teams use declarative YAML for real environments, and save imperative commands for quick experiments and troubleshooting.
 
 ---
 
@@ -62,7 +66,10 @@ Run `kubectl describe`, `kubectl logs`, and `kubectl exec -it ... -- /bin/bash` 
 
 #### Screenshot 4 — Terminal showing `kubectl describe`, `kubectl logs`, or the `/usr/share/nginx/html` directory
 
-Add your screenshot here.
+![Screenshot 4 — Terminal showing `kubectl describe`, `kubectl logs`, or the `/usr/share/nginx/html` directory](screenshots/assignment-01-screenshot-04.png)
+
+![Screenshot 4 — Terminal showing `kubectl describe`, `kubectl logs`, or the `/usr/share/nginx/html` directory](screenshots/assignment-01-screenshot-04b.png)
+
 
 ---
 
@@ -75,11 +82,11 @@ Add your screenshot here.
 
 # Completion Checklist
 
-- [ ] Task 1: Lab directory created (Screenshot 1)
-- [ ] Task 2: Pod created imperatively, verified, and deleted (Screenshot 2)
-- [ ] Task 3: Pod created declaratively and verified Running (Screenshot 3)
-- [ ] Task 4: Pod inspected via describe/logs/exec (Screenshot 4)
-- [ ] Understood the difference between imperative and declarative methods
+- [x] Task 1: Lab directory created (Screenshot 1)
+- [x] Task 2: Pod created imperatively, verified, and deleted (Screenshot 2)
+- [x] Task 3: Pod created declaratively and verified Running (Screenshot 3)
+- [x] Task 4: Pod inspected via describe/logs/exec (Screenshot 4)
+- [x] Understood the difference between imperative and declarative methods
 
 ---
 

@@ -20,7 +20,7 @@ Create the `~/k8s-labs/replicasets` working directory.
 
 #### Screenshot 1 — Terminal showing the `~/k8s-labs/replicasets` working directory
 
-Add your screenshot here.
+![Screenshot 1 — Terminal showing the `~/k8s-labs/replicasets` working directory](screenshots/assignment-02-screenshot-01.png)
 
 ---
 
@@ -34,7 +34,7 @@ Write `nginx-replicaset.yaml` (apiVersion `apps/v1`, kind `ReplicaSet`, 3 replic
 
 #### Screenshot 2 — `nginx-replicaset.yaml` and terminal output showing three running Pods
 
-Add your screenshot here.
+![Screenshot 2 — `nginx-replicaset.yaml` and terminal output showing three running Pods](screenshots/assignment-02-screenshot-02.png)
 
 ---
 
@@ -48,7 +48,7 @@ Delete one Pod managed by `nginx-replicaset` and confirm Kubernetes creates a re
 
 #### Screenshot 3 — Terminal showing the deleted Pod and the newly created replacement, with the desired count remaining three
 
-Add your screenshot here.
+![Screenshot 3 — Terminal showing the deleted Pod and the newly created replacement, with the desired count remaining three](screenshots/assignment-02-screenshot-03.png)
 
 ---
 
@@ -62,9 +62,13 @@ Change `replicas` from 3 to 5, reapply the manifest, and confirm five Pods are m
 
 #### Screenshot 4 — Terminal showing five Pods and the `nginx-replicaset` details
 
-Add your screenshot here.
+![Screenshot 4 — Terminal showing five Pods and the `nginx-replicaset` details](screenshots/assignment-02-screenshot-04.png)
 
 ---
+
+Why Deployments are preferred over ReplicaSets
+A ReplicaSet is good at one job: keeping a set number of identical Pods running. When I deleted one Pod, it created a replacement, and when I changed replicas to 5, it added two more. But it can’t safely update my app. If I changed the image from nginx:1.21.1 to a newer version and reapplied, the ReplicaSet would only use the new image for Pods it creates in the future. The existing Pods would keep running the old version. It also keeps no history, so there’s no easy way to roll back if a new version breaks.
+A Deployment sits on top of ReplicaSets and solves this. It does rolling updates, replacing Pods a few at a time so the app stays available, and it remembers previous versions, so I can roll back with one command. That’s why teams use Deployments for real applications and rarely create ReplicaSets directly.
 
 # Submission Instructions
 
@@ -75,11 +79,11 @@ Add your screenshot here.
 
 # Completion Checklist
 
-- [ ] Task 1: Lab directory created (Screenshot 1)
-- [ ] Task 2: ReplicaSet created with three Pods (Screenshot 2)
-- [ ] Task 3: Auto-healing observed after deleting a Pod (Screenshot 3)
-- [ ] Task 4: Scaled to five Pods and inspected (Screenshot 4)
-- [ ] Understood why Deployments are preferred for rolling updates and rollbacks
+- [x] Task 1: Lab directory created (Screenshot 1)
+- [x] Task 2: ReplicaSet created with three Pods (Screenshot 2)
+- [x] Task 3: Auto-healing observed after deleting a Pod (Screenshot 3)
+- [x] Task 4: Scaled to five Pods and inspected (Screenshot 4)
+- [x] Understood why Deployments are preferred for rolling updates and rollbacks
 
 ---
 

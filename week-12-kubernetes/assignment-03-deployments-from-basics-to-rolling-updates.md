@@ -20,7 +20,7 @@ Create the `~/k8s-labs/deployments` working directory.
 
 #### Screenshot 1 — Terminal showing the `~/k8s-labs/deployments` working directory
 
-Add your screenshot here.
+![Screenshot 1 — Terminal showing the `~/k8s-labs/deployments` working directory](screenshots/assignment-03-screenshot-01.png)
 
 ---
 
@@ -34,7 +34,10 @@ Create `nginx-deployment.yaml` with two replicas and image `nginx:1.21.1`, apply
 
 #### Screenshot 2 — Manifest plus `kubectl` output showing the Deployment, ReplicaSet, and two Pods
 
-Add your screenshot here.
+![Screenshot 2 — Manifest plus `kubectl` output showing the Deployment, ReplicaSet, and two Pods](screenshots/assignment-03-screenshot-02a.png)
+
+![Screenshot 2 — Manifest plus `kubectl` output showing the Deployment, ReplicaSet, and two Pods](screenshots/assignment-03-screenshot-02b.png)
+
 
 ---
 
@@ -48,7 +51,10 @@ Add `strategy.rollingUpdate` with `maxSurge: 1` and `maxUnavailable: 0` to the D
 
 #### Screenshot 3 — Deployment YAML showing the RollingUpdate strategy and successful apply output
 
-Add your screenshot here.
+![Screenshot 3 — Deployment YAML showing the RollingUpdate strategy and successful apply output](screenshots/assignment-03-screenshot-03a.png)
+
+![Screenshot 3 — Deployment YAML showing the RollingUpdate strategy and successful apply output](screenshots/assignment-03-screenshot-03b.png)
+
 
 ---
 
@@ -62,7 +68,10 @@ Update the image to `nginx:1.23.1` with `kubectl set image`, watch the rollout, 
 
 #### Screenshot 4 — Rolling-update status, multiple ReplicaSets, and successful rollback/history output
 
-Add your screenshot here.
+![Screenshot 4 — Rolling-update status, multiple ReplicaSets, and successful rollback/history output](screenshots/assignment-03-screenshot-04a.png)
+
+![Screenshot 4 — Rolling-update status, multiple ReplicaSets, and successful rollback/history output](screenshots/assignment-03-screenshot-04b.png)
+
 
 ---
 
@@ -76,7 +85,10 @@ Scale to five replicas, verify, then scale back to two.
 
 #### Screenshot 5 — Terminal showing the scale-up and scale-down results
 
-Add your screenshot here.
+![Screenshot 5 — Terminal showing the scale-up and scale-down results](screenshots/assignment-03-screenshot-05a.png)
+
+![Screenshot 5 — Terminal showing the scale-up and scale-down results](screenshots/assignment-03-screenshot-05b.png)
+
 
 ---
 
@@ -84,7 +96,15 @@ Add your screenshot here.
 
 Write a short note describing what the lab demonstrated.
 
-Write your answer here.
+This lab showed how a Deployment manages the whole life of an application. I only created the Deployment, and Kubernetes created the ReplicaSet (nginx-deployment-cc6647449) and its two Pods for me, so the chain is Deployment → ReplicaSet → Pods.
+
+I added a RollingUpdate strategy with maxSurge: 1 and maxUnavailable: 0. When I updated the image from nginx:1.21.1 to nginx:1.23.1, the Deployment created a new ReplicaSet (7cb666f47) and swapped Pods one at a time. It started one new Pod, waited until it was ready, and only then removed an old one, so two Pods were always available. The old ReplicaSet was kept at 0 replicas instead of being deleted.
+
+That old ReplicaSet is what made the rollback possible. kubectl rollout undo scaled cc6647449 back up and the new one back down, using the same safe process, and the image returned to nginx:1.21.1. The rollout history showed revisions 2 and 3, because the rollback re-recorded the original version as the newest revision.
+
+Finally, kubectl scale changed the number of Pods to 5 and back to 2 without creating a new ReplicaSet or a new revision, because the Pod template didn’t change. I also learned that kubectl scale doesn’t edit my YAML file, which still says replicas: 2, so reapplying the file would reset the count.
+
+Compared with a plain ReplicaSet in Assignment 02, a Deployment adds safe updates, version history and rollbacks. That’s why it’s the standard way to run applications in production.
 
 ---
 
@@ -97,12 +117,12 @@ Write your answer here.
 
 # Completion Checklist
 
-- [ ] Task 1: Lab directory created (Screenshot 1)
-- [ ] Task 2: Two-replica Deployment applied (Screenshot 2)
-- [ ] Task 3: RollingUpdate strategy configured (Screenshot 3)
-- [ ] Task 4: Image updated and rolled back (Screenshot 4)
-- [ ] Task 5: Scaled up and down (Screenshot 5)
-- [ ] Reflection notes written (Notes)
+- [x] Task 1: Lab directory created (Screenshot 1)
+- [x] Task 2: Two-replica Deployment applied (Screenshot 2)
+- [x] Task 3: RollingUpdate strategy configured (Screenshot 3)
+- [x] Task 4: Image updated and rolled back (Screenshot 4)
+- [x] Task 5: Scaled up and down (Screenshot 5)
+- [x] Reflection notes written (Notes)
 
 ---
 

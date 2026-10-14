@@ -20,7 +20,7 @@ Create the `~/k8s-labs/autoscaling` working directory.
 
 #### Screenshot 1 — Terminal showing the `autoscaling` directory
 
-Add your screenshot here.
+![Screenshot 1 — Terminal showing the `autoscaling` directory](screenshots/assignment-04-screenshot-01.png)
 
 ---
 
@@ -34,7 +34,7 @@ Create `demo-autohealing` (two replicas), delete one Pod, and confirm the desire
 
 #### Screenshot 2 — Deleted Pod and replacement Pod with the replica count restored
 
-Add your screenshot here.
+![Screenshot 2 — Deleted Pod and replacement Pod with the replica count restored](screenshots/assignment-04-screenshot-02.png)
 
 ---
 
@@ -48,7 +48,11 @@ Deploy `nginx-deployment` with CPU `requests: 100m` / `limits: 200m`, then enabl
 
 #### Screenshot 3 — Deployment resources plus successful Metrics Server status
 
-Add your screenshot here.
+![Screenshot 3 — Deployment resources plus successful Metrics Server status](screenshots/assignment-04-screenshot-03a.png)
+
+![Screenshot 3 — Deployment resources plus successful Metrics Server status](screenshots/assignment-04-screenshot-03b.png)
+
+![Screenshot 3 — Deployment resources plus successful Metrics Server status](screenshots/assignment-04-screenshot-03c.png)
 
 ---
 
@@ -62,7 +66,9 @@ Create an HPA (imperatively via `kubectl autoscale` or declaratively via `autosc
 
 #### Screenshot 4 — `kubectl get hpa` and `kubectl describe hpa nginx-hpa` output
 
-Add your screenshot here.
+![Screenshot 4 — `kubectl get hpa` and `kubectl describe hpa nginx-hpa` output](screenshots/assignment-04-screenshot-04.png)
+
+![Screenshot 4 — `kubectl get hpa` and `kubectl describe hpa nginx-hpa` output](screenshots/assignment-04-screenshot-04b.png)
 
 ---
 
@@ -76,7 +82,7 @@ Generate CPU load inside an NGINX Pod (`yes > /dev/null`) and monitor whether th
 
 #### Screenshot 5 — HPA output showing current metrics and any replica increase
 
-Add your screenshot here.
+![Screenshot 5 — HPA output showing current metrics and any replica increase](screenshots/assignment-04-screenshot-05.png)
 
 ---
 
@@ -84,7 +90,15 @@ Add your screenshot here.
 
 Write a short note describing what the lab demonstrated.
 
-Write your answer here.
+This lab showed two different ways Kubernetes keeps an application reliable.
+
+Auto-healing keeps the number of Pods the same. I created demo-autohealing with 2 replicas and deleted the Pod 2phw5. Within seconds, the Deployment’s ReplicaSet created a replacement, f6hhz, and the Deployment went from 1/2 back to 2/2. Auto-healing restores the desired count but never changes it.
+
+Auto-scaling changes the number of Pods based on demand. First I added CPU settings to nginx-deployment: a request of 100m (0.1 of a core) and a limit of 200m. The HPA needs the request because it measures CPU as a percentage of it. Next I installed Metrics Server, which measures real CPU usage. On kind it failed at first with an x509: cannot validate certificate error and stayed at 0/1. After adding the --kubelet-insecure-tls setting it became 1/1, and kubectl top pods showed real numbers.
+
+I then created nginx-hpa with min 2, max 5 and a 50% CPU target. Its target showed <unknown> for the first few seconds until it got its first metrics reading, and then 0%/50%. When I ran yes > /dev/null inside one Pod, its CPU rose to its 200m limit, which pushed the average above 50%. The HPA scaled the Deployment from 2 to 4 Pods and recorded the event “New size: 4; reason: cpu resource utilization above target.” When the load stopped, the CPU dropped back to 0%, and the HPA will gradually scale back toward the minimum of 2.
+
+Together, auto-healing protects the app from failures, and auto-scaling protects it from traffic spikes without anyone scaling manually.
 
 ---
 
@@ -97,12 +111,12 @@ Write your answer here.
 
 # Completion Checklist
 
-- [ ] Task 1: Lab directory created (Screenshot 1)
-- [ ] Task 2: Auto-healing observed (Screenshot 2)
-- [ ] Task 3: HPA-ready Deployment applied and Metrics Server verified (Screenshot 3)
-- [ ] Task 4: HPA created and inspected (Screenshot 4)
-- [ ] Task 5: CPU load generated and scaling observed (Screenshot 5, optional)
-- [ ] Reflection notes written (Notes)
+- [x] Task 1: Lab directory created (Screenshot 1)
+- [x] Task 2: Auto-healing observed (Screenshot 2)
+- [x] Task 3: HPA-ready Deployment applied and Metrics Server verified (Screenshot 3)
+- [x] Task 4: HPA created and inspected (Screenshot 4)
+- [x] Task 5: CPU load generated and scaling observed (Screenshot 5, optional)
+- [x] Reflection notes written (Notes)
 
 ---
 
