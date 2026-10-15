@@ -20,7 +20,7 @@ Deploy two NGINX Pods without probes (`00-nginx-deploy-baseline.yaml`) to establ
 
 #### Screenshot 1 — Baseline manifest and healthy two-Pod rollout output
 
-Add your screenshot here.
+![Screenshot 1 — Baseline manifest and healthy two-Pod rollout output](screenshots/assignment-05-screenshot-01.png)
 
 ---
 
@@ -34,7 +34,7 @@ Add an HTTP readiness probe on `/` port 80 (`01-nginx-deploy-readiness.yaml`) an
 
 #### Screenshot 2 — Pod description showing the readiness probe and `Ready=True`
 
-Add your screenshot here.
+![Screenshot 2 — Pod description showing the readiness probe and `Ready=True`](screenshots/assignment-05-screenshot-02.png)
 
 ---
 
@@ -48,7 +48,7 @@ Change the readiness path to `/does-not-exist`, observe `NotReady` and a stalled
 
 #### Screenshot 3 — `NotReady` conditions followed by a successful fixed rollout
 
-Add your screenshot here.
+![Screenshot 3 — `NotReady` conditions followed by a successful fixed rollout](screenshots/assignment-05-screenshot-03.png)
 
 ---
 
@@ -62,7 +62,7 @@ Perform a good image update to `nginx:1.21.2`, then attempt an update to `nginx:
 
 #### Screenshot 4 — Successful good rollout, stalled broken rollout, and successful recovery
 
-Add your screenshot here.
+![Screenshot 4 — Successful good rollout, stalled broken rollout, and successful recovery](screenshots/assignment-05-screenshot-04.png)
 
 ---
 
@@ -76,7 +76,7 @@ Review probe timing/thresholds and retain or delete the Deployment.
 
 #### Screenshot 5 — Final healthy Pod state or optional cleanup output
 
-Add your screenshot here.
+![Screenshot 5 — Final healthy Pod state or optional cleanup output](screenshots/assignment-05-screenshot-05.png)
 
 ---
 
@@ -84,8 +84,7 @@ Add your screenshot here.
 
 Write a short note describing what the lab demonstrated.
 
-Write your answer here.
-
+This lab showed that Running and Ready are not the same thing. Without a probe, Kubernetes marked NGINX Pods ready as soon as the container started. After I added an HTTP readiness probe on / port 80, Pods only became Ready after NGINX answered successfully. When I changed the path to /does-not-exist, the probe got HTTP 404 eleven times in under a minute, the new Pod stayed 0/1 with Ready=False, and the rollout timed out while both healthy Pods kept serving. In the rolling-update test, a good update to nginx:1.21.3 rolled out cleanly, but a bad release (nginx:1.21.4 plus a broken probe) stalled at 2 available | 1 unavailable. Because of maxUnavailable: 0, Kubernetes never removed a healthy Pod until a new one passed readiness. Applying the fixed manifest restored the Deployment. Note: I used 1.21.3 and 1.21.4 because nginx:1.21.2 does not exist on Docker Hub. Probe timing is a trade-off: with periodSeconds: 5 and failureThreshold: 3, a failing Pod is pulled out after about 15 seconds.
 ---
 
 # Submission Instructions
@@ -97,12 +96,12 @@ Write your answer here.
 
 # Completion Checklist
 
-- [ ] Task 1: Baseline Deployment applied (Screenshot 1)
-- [ ] Task 2: Readiness probe added and verified (Screenshot 2)
-- [ ] Task 3: Readiness broken and fixed (Screenshot 3)
-- [ ] Task 4: Readiness-gated rolling update proven (Screenshot 4)
-- [ ] Task 5: Tuning reviewed / cleanup completed (Screenshot 5)
-- [ ] Reflection notes written (Notes)
+- [x] Task 1: Baseline Deployment applied (Screenshot 1)
+- [x] Task 2: Readiness probe added and verified (Screenshot 2)
+- [x] Task 3: Readiness broken and fixed (Screenshot 3)
+- [x] Task 4: Readiness-gated rolling update proven (Screenshot 4)
+- [x] Task 5: Tuning reviewed / cleanup completed (Screenshot 5)
+- [x] Reflection notes written (Notes)
 
 ---
 

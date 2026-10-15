@@ -20,7 +20,7 @@ Deploy two NGINX Pods without probes (`00-nginx-deploy-baseline.yaml`).
 
 #### Screenshot 1 — Baseline Deployment and two running Pods
 
-Add your screenshot here.
+![Screenshot 1 — Baseline Deployment and two running Pods](screenshots/assignment-06-screenshot-01.png)
 
 ---
 
@@ -34,7 +34,7 @@ Add an HTTP liveness probe on `/` port 80 (`01-nginx-deploy-liveness.yaml`) and 
 
 #### Screenshot 2 — Pod description showing the liveness probe
 
-Add your screenshot here.
+![Screenshot 2 — Pod description showing the liveness probe](screenshots/assignment-06-screenshot-02.png)
 
 ---
 
@@ -48,7 +48,7 @@ Change the liveness path to `/does-not-exist`, apply it, and watch `RESTARTS` in
 
 #### Screenshot 3 — Pod RESTARTS increment and the corresponding liveness failure events
 
-Add your screenshot here.
+![Screenshot 3 — Pod RESTARTS increment and the corresponding liveness failure events](screenshots/assignment-06-screenshot-03.png)
 
 ---
 
@@ -62,7 +62,7 @@ Reapply the good liveness manifest and confirm restart counts stop increasing.
 
 #### Screenshot 4 — Stable Pod state after the fixed manifest is applied
 
-Add your screenshot here.
+![Screenshot 4 — Stable Pod state after the fixed manifest is applied](screenshots/assignment-06-screenshot-04.png)
 
 ---
 
@@ -76,7 +76,7 @@ Review recommended probe ranges and retain or delete the Deployment.
 
 #### Screenshot 5 — Final healthy state and any troubleshooting evidence used
 
-Add your screenshot here.
+![Screenshot 5 — Final healthy state and any troubleshooting evidence used](screenshots/assignment-06-screenshot-05.png)
 
 ---
 
@@ -84,8 +84,7 @@ Add your screenshot here.
 
 Write a short note describing what the lab demonstrated.
 
-Write your answer here.
-
+This lab showed that a liveness probe answers a different question than a readiness probe: not “can this Pod take traffic?” but “should Kubernetes restart this container?” I added an HTTP liveness probe on / port 80 (10s delay, 10s period, failure threshold 3), and the Pods stayed Running with 0 restarts. When I changed the path to /does-not-exist, NGINX returned 404 and the kubelet logged “Container nginx failed liveness probe, will be restarted” after every 3 failures. RESTARTS climbed to 2 within 52 seconds and reached 4 before I fixed it. The Pod names never changed, because only the container inside was restarted. The rollout still reported success, because liveness does not gate rollouts; readiness does. Applying the fixed manifest created fresh Pods whose restart counts stayed at 0 for over a minute. The main lesson is to tune liveness probes conservatively and keep them lightweight, because an aggressive or dependency-heavy liveness probe can turn a small hiccup into a restart loop.
 ---
 
 # Submission Instructions
@@ -97,12 +96,12 @@ Write your answer here.
 
 # Completion Checklist
 
-- [ ] Task 1: Baseline Deployment applied (Screenshot 1)
-- [ ] Task 2: Liveness probe added and verified (Screenshot 2)
-- [ ] Task 3: Liveness restart triggered and observed (Screenshot 3)
-- [ ] Task 4: Probe restored and stabilized (Screenshot 4)
-- [ ] Task 5: Tuning reviewed / cleanup completed (Screenshot 5)
-- [ ] Reflection notes written (Notes)
+- [x] Task 1: Baseline Deployment applied (Screenshot 1)
+- [x] Task 2: Liveness probe added and verified (Screenshot 2)
+- [x] Task 3: Liveness restart triggered and observed (Screenshot 3)
+- [x] Task 4: Probe restored and stabilized (Screenshot 4)
+- [x] Task 5: Tuning reviewed / cleanup completed (Screenshot 5)
+- [x] Reflection notes written (Notes)
 
 ---
 

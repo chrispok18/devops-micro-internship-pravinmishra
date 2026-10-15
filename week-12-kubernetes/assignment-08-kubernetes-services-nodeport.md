@@ -20,7 +20,7 @@ Create healthy, labeled NGINX Pods (readiness + liveness probes) for the NodePor
 
 #### Screenshot 1 — Healthy NGINX Pods before Service creation
 
-Add your screenshot here.
+![Screenshot 1 — Healthy NGINX Pods before Service creation](screenshots/assignment-08-screenshot-01.png)
 
 ---
 
@@ -34,7 +34,7 @@ Create `nginx-svc-nodeport` (type `NodePort`, port 80, `nodePort: 30080`) and in
 
 #### Screenshot 2 — Service output showing `80:30080` and populated endpoints
 
-Add your screenshot here.
+![Screenshot 2 — Service output showing `80:30080` and populated endpoints](screenshots/assignment-08-screenshot-02.png)
 
 ---
 
@@ -48,7 +48,7 @@ Find a reachable node IP and test `<NODE_IP>:30080` externally (curl) and intern
 
 #### Screenshot 3 — Successful external or internal NodePort response
 
-Add your screenshot here.
+![Screenshot 3 — Successful external or internal NodePort response](screenshots/assignment-08-screenshot-03.png)
 
 ---
 
@@ -62,7 +62,7 @@ Use the appropriate fallback for your cluster environment (`minikube service --u
 
 #### Screenshot 4 — Minikube helper URL or local validation result
 
-Add your screenshot here.
+![Screenshot 4 — Minikube helper URL or local validation result](screenshots/assignment-08-screenshot-04.png)
 
 ---
 
@@ -76,7 +76,7 @@ Change the selector to `app: does-not-match`, confirm endpoints empty and the re
 
 #### Screenshot 5 — Empty then restored endpoint output
 
-Add your screenshot here.
+![Screenshot 5 — Empty then restored endpoint output](screenshots/assignment-08-screenshot-05.png)
 
 ---
 
@@ -90,7 +90,9 @@ Delete one backend Pod while calling the NodePort from another terminal, confirm
 
 #### Screenshot 6 — Pod replacement while NodePort remains available
 
-Add your screenshot here.
+![Screenshot 6 — Pod replacement while NodePort remains available](screenshots/assignment-08-screenshot-06a.png)
+
+![Screenshot 6 — Pod replacement while NodePort remains available](screenshots/assignment-08-screenshot-06b.png)
 
 ---
 
@@ -98,8 +100,7 @@ Add your screenshot here.
 
 Write a short note describing what the lab demonstrated.
 
-Write your answer here.
-
+This lab showed that a NodePort Service is a ClusterIP Service with an extra door on every node. I created nginx-svc-nodeport with port: 80, targetPort: 80 and a fixed nodePort: 30080. It got ClusterIP 10.96.48.43 and listed both NGINX Pods (10.244.0.28 and .29) as ready endpoints. The kind node’s INTERNAL-IP was 172.18.0.2, and http://172.18.0.2:30080 returned 200 OK both from my WSL terminal and from a BusyBox tester Pod. (In an earlier kind cluster the laptop request timed out, which shows that external NodePort access depends on host networking, not on the Service.) As the kind/Docker Desktop fallback, kubectl port-forward svc/nginx-svc-nodeport 8080:80 also returned the NGINX page, though this bypasses NodePort networking. Changing the selector to app: does-not-match left port 30080 open but emptied the endpoints, and requests were refused within 3 ms, even though both Pods stayed healthy. Restoring the selector brought back 200 OK. Finally, when I deleted one Pod during continuous requests, the ReplicaSet created a replacement (10.244.0.31) within 2 seconds, the EndpointSlice updated automatically, and every request returned 200, with only a single ~3-second delay at the moment of deletion.
 ---
 
 # Submission Instructions
@@ -111,13 +112,13 @@ Write your answer here.
 
 # Completion Checklist
 
-- [ ] Task 1: Probed NGINX Deployment applied (Screenshot 1)
-- [ ] Task 2: NodePort Service created on 30080 (Screenshot 2)
-- [ ] Task 3: NodePort tested externally/internally (Screenshot 3)
-- [ ] Task 4: Environment-specific access method used (Screenshot 4)
-- [ ] Task 5: Selector broken and fixed (Screenshot 5)
-- [ ] Task 6: Pod churn tested and Service continuity confirmed (Screenshot 6)
-- [ ] Reflection notes written (Notes)
+- [x] Task 1: Probed NGINX Deployment applied (Screenshot 1)
+- [x] Task 2: NodePort Service created on 30080 (Screenshot 2)
+- [x] Task 3: NodePort tested externally/internally (Screenshot 3)
+- [x] Task 4: Environment-specific access method used (Screenshot 4)
+- [x] Task 5: Selector broken and fixed (Screenshot 5)
+- [x] Task 6: Pod churn tested and Service continuity confirmed (Screenshot 6)
+- [x] Reflection notes written (Notes)
 
 ---
 

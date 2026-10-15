@@ -20,7 +20,7 @@ Create two healthy, labeled NGINX Pods (readiness + liveness probes) as Service 
 
 #### Screenshot 1 — Two Ready Pods with labels and IPs
 
-Add your screenshot here.
+![Screenshot 1 — Two Ready Pods with labels and IPs](screenshots/assignment-07-screenshot-01.png)
 
 ---
 
@@ -34,7 +34,7 @@ Create `nginx-svc` (type `ClusterIP`, selector `app: nginx`, port 80) and inspec
 
 #### Screenshot 2 — Service ClusterIP plus populated Endpoints and EndpointSlices
 
-Add your screenshot here.
+![Screenshot 2 — Service ClusterIP plus populated Endpoints and EndpointSlices](screenshots/assignment-07-screenshot-02.png)
 
 ---
 
@@ -48,7 +48,7 @@ Create a BusyBox `tester` Pod and call `nginx-svc` by short name, ClusterIP, and
 
 #### Screenshot 3 — Successful `wget` responses and `nslookup` output
 
-Add your screenshot here.
+![Screenshot 3 — Successful `wget` responses and `nslookup` output](screenshots/assignment-07-screenshot-03.png)
 
 ---
 
@@ -62,7 +62,7 @@ Change the Service selector to `app: does-not-match`, confirm endpoints become e
 
 #### Screenshot 4 — Empty endpoints during failure and restored endpoints after the fix
 
-Add your screenshot here.
+![Screenshot 4 — Empty endpoints during failure and restored endpoints after the fix](screenshots/assignment-07-screenshot-04.png)
 
 ---
 
@@ -76,7 +76,9 @@ Scale to one replica, apply a broken readiness patch, confirm the NotReady Pod i
 
 #### Screenshot 5 — NotReady Pod with excluded endpoint, followed by restored endpoint membership
 
-Add your screenshot here.
+![Screenshot 5 — NotReady Pod with excluded endpoint, followed by restored endpoint membership](screenshots/assignment-07-screenshot-05.png)
+
+![Screenshot 5 — NotReady Pod with excluded endpoint, followed by restored endpoint membership](screenshots/assignment-07-screenshot-05a.png)
 
 ---
 
@@ -90,7 +92,7 @@ Verify the Service path, then optionally delete `tester` and `nginx-svc`.
 
 #### Screenshot 6 — Final verification or optional cleanup output
 
-Add your screenshot here.
+![Screenshot 5 — NotReady Pod with excluded endpoint, followed by restored endpoint membership](screenshots/assignment-07-screenshot-06.png)
 
 ---
 
@@ -98,8 +100,7 @@ Add your screenshot here.
 
 Write a short note describing what the lab demonstrated.
 
-Write your answer here.
-
+This lab showed how a ClusterIP Service gives a stable internal address to Pods whose IPs keep changing. I deployed two NGINX Pods labelled app=nginx (IPs 10.244.0.23 and .24) with readiness and liveness probes, then created nginx-svc with selector app: nginx. Kubernetes gave it the ClusterIP 10.96.193.71 and automatically listed both Pod IPs as ready: true in its EndpointSlice. From a BusyBox tester Pod, I reached NGINX by short name, by ClusterIP, and through nslookup, where CoreDNS resolved both nginx-svc and nginx-svc.default.svc.cluster.local to the Service IP, not to the Pods. When I changed the selector to app: does-not-match, the endpoints became <none> and requests got “Connection refused”, even though both Pods stayed healthy. Restoring app: nginx brought traffic back instantly, with the same ClusterIP. Finally, with one healthy Pod and a broken readiness patch, the new Pod (10.244.0.26) appeared in the EndpointSlice with ready: false and received no traffic, while requests kept succeeding through the healthy Pod. In short, Services find Pods by labels and route only to Ready ones, which is why selectors and readiness probes matter so much.
 ---
 
 # Submission Instructions
@@ -111,13 +112,13 @@ Write your answer here.
 
 # Completion Checklist
 
-- [ ] Task 1: Probed NGINX Deployment applied (Screenshot 1)
-- [ ] Task 2: ClusterIP Service created and inspected (Screenshot 2)
-- [ ] Task 3: Service reached by DNS and ClusterIP (Screenshot 3)
-- [ ] Task 4: Selector broken and fixed (Screenshot 4)
-- [ ] Task 5: Readiness-aware routing proven (Screenshot 5)
-- [ ] Task 6: Verified / cleaned up (Screenshot 6)
-- [ ] Reflection notes written (Notes)
+- [x] Task 1: Probed NGINX Deployment applied (Screenshot 1)
+- [x] Task 2: ClusterIP Service created and inspected (Screenshot 2)
+- [x] Task 3: Service reached by DNS and ClusterIP (Screenshot 3)
+- [x] Task 4: Selector broken and fixed (Screenshot 4)
+- [x] Task 5: Readiness-aware routing proven (Screenshot 5)
+- [x] Task 6: Verified / cleaned up (Screenshot 6)
+- [x] Reflection notes written (Notes)
 
 ---
 
