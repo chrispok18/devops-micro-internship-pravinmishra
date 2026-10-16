@@ -20,7 +20,7 @@ Create resource group `rg-aks-lb-lab` and a one-node AKS cluster `aks-lb-lab` (`
 
 #### Screenshot 1 — AKS creation result and Ready node output
 
-Add your screenshot here.
+![Screenshot 1 — AKS creation result and Ready node output](screenshots/assignment-09-screenshot-01.png)
 
 ---
 
@@ -34,7 +34,7 @@ Create two healthy, probed NGINX Pods for the public Service.
 
 #### Screenshot 2 — Successful rollout and two Ready Pods
 
-Add your screenshot here.
+![Screenshot 2 — Successful rollout and two Ready Pods](screenshots/assignment-09-screenshot-02.png)
 
 ---
 
@@ -48,7 +48,7 @@ Create `nginx-svc-lb` (type `LoadBalancer`, port 80), wait for `EXTERNAL-IP`, an
 
 #### Screenshot 3 — Service with public `EXTERNAL-IP` and successful `curl` output
 
-Add your screenshot here.
+![Screenshot 3 — Service with public `EXTERNAL-IP` and successful `curl` output](screenshots/assignment-09-screenshot-03.png)
 
 ---
 
@@ -62,7 +62,7 @@ Apply a broken readiness patch, confirm the Pod leaves the endpoint set and publ
 
 #### Screenshot 4 — Endpoint changes and public `curl` behavior before and after recovery
 
-Add your screenshot here.
+![Screenshot 4 — Endpoint changes and public `curl` behavior before and after recovery](screenshots/assignment-09-screenshot-04.png)
 
 ---
 
@@ -76,7 +76,7 @@ Scale to four replicas and confirm the endpoint set grows while the public IP st
 
 #### Screenshot 5 — Four replicas/endpoints behind the unchanged public endpoint
 
-Add your screenshot here.
+![Screenshot 5 — Four replicas/endpoints behind the unchanged public endpoint](screenshots/assignment-09-screenshot-05.png)
 
 ---
 
@@ -90,7 +90,7 @@ Resolve any pending endpoint or unhealthy backend issues, then delete the Kubern
 
 #### Screenshot 6 — Clean final verification or resource deletion command output
 
-Add your screenshot here.
+![Screenshot 6 — Clean final verification or resource deletion command output](screenshots/assignment-09-screenshot-06.png)
 
 ---
 
@@ -98,8 +98,7 @@ Add your screenshot here.
 
 Write a short note describing what the lab demonstrated.
 
-Write your answer here.
-
+This lab exposed NGINX to the public internet through a Kubernetes LoadBalancer Service on Azure AKS. The README specified westeurope and Standard_B2s, but my Azure for Students subscription only allows five EU regions, and AKS rejected every B-series size in germanywestcentral, where every AKS-allowed size had a vCPU quota of 0. In polandcentral, AKS accepted Standard_B2s_v2, the current-generation equivalent of B2s, so I built the one-node cluster aks-lb-lab there (Kubernetes 1.35.8). Because my Azure CLI is the Windows build, I had to point az aks get-credentials --file at my WSL kubeconfig with wslpath -w. The same probed NGINX Deployment from earlier labs ran unchanged on AKS. Creating nginx-svc-lb with type: LoadBalancer made AKS provision an Azure public IP in under 10 seconds (20.215.176.195), and curl returned HTTP/1.1 200 OK from the internet. The Service also received a NodePort (31517), which is how the Azure load balancer reaches the node. When I rolled out a broken readiness probe, the new Pod (10.244.0.240) appeared in the EndpointSlice with ready: false, and five consecutive public requests still returned 200 through the two healthy Pods. Scaling to four replicas added four ready endpoints while the public IP stayed exactly the same. Finally, I deleted the Service first (so AKS released the Azure load balancer and IP) and then the whole resource group, to stop charges.
 ---
 
 # Submission Instructions
@@ -111,13 +110,13 @@ Write your answer here.
 
 # Completion Checklist
 
-- [ ] Task 1: AKS cluster provisioned and connected (Screenshot 1)
-- [ ] Task 2: Probed NGINX Deployment applied (Screenshot 2)
-- [ ] Task 3: LoadBalancer Service created and tested (Screenshot 3)
-- [ ] Task 4: Readiness impact on public traffic proven (Screenshot 4)
-- [ ] Task 5: Scaled behind the stable endpoint (Screenshot 5)
-- [ ] Task 6: Verified / cleaned up Azure resources (Screenshot 6)
-- [ ] Reflection notes written (Notes)
+- [x] Task 1: AKS cluster provisioned and connected (Screenshot 1)
+- [x] Task 2: Probed NGINX Deployment applied (Screenshot 2)
+- [x] Task 3: LoadBalancer Service created and tested (Screenshot 3)
+- [x] Task 4: Readiness impact on public traffic proven (Screenshot 4)
+- [x] Task 5: Scaled behind the stable endpoint (Screenshot 5)
+- [x] Task 6: Verified / cleaned up Azure resources (Screenshot 6)
+- [x] Reflection notes written (Notes)
 
 ---
 
