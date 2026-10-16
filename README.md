@@ -142,7 +142,7 @@ Week 12 → Kubernetes
 | 09 | Ansible | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/caryee_dmibypravinmishra-terraform-ansible-ugcPost-7504687986182176768-mgY4/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACP6ElcBF7-kOglrea_3V5oUhVp4NSh-Trc | https://medium.com/@chrispok18/the-hang-that-wasnt-infinite-0a0b1602debb |
 | 10 | Azure DevOps (CI/CD) | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/caryee_dmibypravinmishra-devops-terraform-ugcPost-7507477580737007616-bWZ7/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACP6ElcBF7-kOglrea_3V5oUhVp4NSh-Trc | https://medium.com/@chrispok18/push-a-commit-update-a-live-website-my-first-ci-cd-pipeline-with-terraform-ansible-and-azure-1fbbf74d07f3 |
 | 11 | Docker | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/caryee_dmibypravinmishra-devops-aws-ugcPost-7511523641126461440-Yd-C/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACP6ElcBF7-kOglrea_3V5oUhVp4NSh-Trc | https://medium.com/@chrispok18/docker-networking-for-beginners-bridge-custom-bridge-multi-network-and-host-mode-on-aws-b60ee9f4c4e1 |
-| 12 | Kubernetes | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/caryee_handson-with-k8s-ugcPost-7516511621809139712-Wpso/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACP6ElcBF7-kOglrea_3V5oUhVp4NSh-Trc | — |
+| 12 | Kubernetes | ✅ Completed | ✅ Solved | https://www.linkedin.com/posts/caryee_handson-with-k8s-ugcPost-7516511621809139712-Wpso/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACP6ElcBF7-kOglrea_3V5oUhVp4NSh-Trc | https://medium.com/@chrispok18/from-one-pod-to-a-self-scaling-cluster-161ddaaaec41 |
 | 13 | Final Project | ⬜ Not Started | ⏳ Pending | — | — |
 
 **Status:** ⬜ Not Started &nbsp;|&nbsp; 🔄 In Progress &nbsp;|&nbsp; ✅ Completed<br>
