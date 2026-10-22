@@ -1,0 +1,40 @@
+========================================
+Kubernetes Incident Triage Report
+========================================
+Full Name: Christian Aryee
+Timestamp: 2026-10-22T19:00:25Z
+Namespace: book-review
+App Label: app=backend
+Service: backend-service
+
+[PASS] Cluster access, namespace, and matching pod selection verified (1 pod(s))
+
+Pod status (kubectl get pods -o wide):
+  NAME                      READY   STATUS    RESTARTS   AGE    IP              NODE       NOMINATED NODE   READINESS GATES
+  backend-fd4874f67-gn7cb   1/1     Running   0          6m1s   10.244.120.96   minikube   <none>           <none>
+[PASS] No pods reporting CrashLoopBackOff, ImagePullBackOff, ErrImagePull, Pending, ContainerCreating, Error, or Unknown
+[PASS] All matching pods report READY containers equal to desired containers
+[PASS] No pod has 5 or more restarts
+
+Recent namespace events (last 5, sorted by time):
+  6m2s    Normal    SuccessfulDelete    replicaset/backend-5fd74b4df8    Deleted pod: backend-5fd74b4df8-tlvt8
+  6m2s    Normal    ScalingReplicaSet   deployment/backend               Scaled up replica set backend-fd4874f67 from 0 to 1
+  6m1s    Normal    Pulled              pod/backend-fd4874f67-gn7cb      Container image "chrispok18/book-review-backend:v1" already present on machine and can be accessed by the pod
+  6m1s    Normal    Created             pod/backend-fd4874f67-gn7cb      Container created
+  6m1s    Normal    Started             pod/backend-fd4874f67-gn7cb      Container started
+[WARN] Warning events are present (including historical events); confirm age and workload before attributing a cause.
+Service EndpointSlice evidence:
+Slice: backend-service-jqckm Ports: 3010 
+backend-fd4874f67-gn7cb ready=true addresses=["10.244.120.96"]
+[PASS] Service 'backend-service' has ready backend(s): 10.244.120.96
+
+Previous-container logs for the first non-running pod (last 10 lines):
+  All matching pods are Running — no previous-container logs to capture.
+
+Summary:
+PASS: 5
+WARN: 1
+FAIL: 0
+Overall Status: WARN
+Script Exit Code: 1
+Report File: /home/caryee/week-12-agentic-k8s/reports/k8s-health-report.txt

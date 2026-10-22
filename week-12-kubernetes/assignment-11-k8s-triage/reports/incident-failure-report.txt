@@ -1,0 +1,40 @@
+========================================
+Kubernetes Incident Triage Report
+========================================
+Full Name: Christian Aryee
+Timestamp: 2026-10-22T19:04:15Z
+Namespace: book-review
+App Label: app=backend
+Service: backend-service
+
+[PASS] Cluster access, namespace, and matching pod selection verified (1 pod(s))
+
+Pod status (kubectl get pods -o wide):
+  NAME                       READY   STATUS             RESTARTS   AGE    IP              NODE       NOMINATED NODE   READINESS GATES
+  backend-68474bcbfc-nwlr5   0/1     ImagePullBackOff   0          101s   10.244.120.97   minikube   <none>           <none>
+[FAIL] One or more pods are in a bad state: backend-68474bcbfc-nwlr5 ImagePullBackOff
+[FAIL] Pod(s) not passing readiness: backend-68474bcbfc-nwlr5 (READY 0/1)
+[PASS] No pod has 5 or more restarts
+
+Recent namespace events (last 5, sorted by time):
+  24s     Warning   Failed              pod/backend-68474bcbfc-nwlr5     Error: ImagePullBackOff
+  24s     Normal    BackOff             pod/backend-68474bcbfc-nwlr5     Back-off pulling image "chrispok18/book-review-backend:does-not-exist"
+  9s      Normal    Pulling             pod/backend-68474bcbfc-nwlr5     Pulling image "chrispok18/book-review-backend:does-not-exist"
+  7s      Warning   Failed              pod/backend-68474bcbfc-nwlr5     Failed to pull image "chrispok18/book-review-backend:does-not-exist": rpc error: code = NotFound desc = failed to pull and unpack image "docker.io/chrispok18/book-review-backend:does-not-exist": failed to resolve reference "docker.io/chrispok18/book-review-backend:does-not-exist": docker.io/chrispok18/book-review-backend:does-not-exist: not found
+  7s      Warning   Failed              pod/backend-68474bcbfc-nwlr5     Error: ErrImagePull
+[WARN] Warning events are present (including historical events); confirm age and workload before attributing a cause.
+Service EndpointSlice evidence:
+Slice: backend-service-jqckm Ports: 3010 
+backend-68474bcbfc-nwlr5 ready=false addresses=["10.244.120.97"]
+[FAIL] Service 'backend-service' has no ready backends.
+
+Previous-container logs for the first non-running pod (last 10 lines):
+  Error from server (BadRequest): previous terminated container "backend" in pod "backend-68474bcbfc-nwlr5" not found
+
+Summary:
+PASS: 2
+WARN: 1
+FAIL: 3
+Overall Status: FAIL
+Script Exit Code: 2
+Report File: /home/caryee/week-12-agentic-k8s/reports/k8s-health-report.txt

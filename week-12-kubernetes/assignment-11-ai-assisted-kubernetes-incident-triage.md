@@ -20,13 +20,13 @@ Confirm every Book Review App pod is `Running` and `Ready` and that its Service 
 
 #### Screenshot 1 — `kubectl get pods` and `kubectl get endpoints` showing the Book Review App healthy
 
-Add your screenshot here.
+![Screenshot 1 — `kubectl get pods` and `kubectl get endpoints` showing the Book Review App healthy](screenshots/assignment-11-screenshot-01.png)
 
 ---
 
 #### Screenshot 2 — Workspace folder structure for this assignment
 
-Add your screenshot here.
+![Screenshot 2 — Workspace folder structure for this assignment](screenshots/assignment-11-screenshot-02.png)
 
 ---
 
@@ -40,7 +40,7 @@ Add a `CLAUDE.md` telling Claude this is a read-only Kubernetes triage workflow:
 
 #### Screenshot 3 — `CLAUDE.md` showing the project overview, incident workflow, and safety rules
 
-Add your screenshot here.
+![Screenshot 3 — `CLAUDE.md` showing the project overview, incident workflow, and safety rules](screenshots/assignment-11-screenshot-03.png)
 
 ---
 
@@ -54,7 +54,13 @@ Ask Claude to propose a read-only, five-check `kubectl` triage plan — pod stat
 
 #### Screenshot 4 — Claude's proposed five-check plan, with no file created or cluster state changed
 
-Add your screenshot here.
+![Screenshot 4 — Claude's proposed five-check plan, with no file created or cluster state changed](screenshots/assignment-11-screenshot-04a.png)
+
+![Screenshot 4 — Claude's proposed five-check plan, with no file created or cluster state changed](screenshots/assignment-11-screenshot-04b.png)
+
+![Screenshot 4 — Claude's proposed five-check plan, with no file created or cluster state changed](screenshots/assignment-11-screenshot-04c.png)
+
+![Screenshot 4 — Claude's proposed five-check plan, with no file created or cluster state changed](screenshots/assignment-11-screenshot-04d.png)
 
 ---
 
@@ -68,13 +74,15 @@ Write a Bash script that runs the five read-only `kubectl` checks and writes a P
 
 #### Screenshot 5 — Script showing the five checks and how each one gathers its evidence
 
-Add your screenshot here.
+![Screenshot 5 — Script showing the five checks and how each one gathers its evidence](screenshots/assignment-11-screenshot-05.png)
+
+![Screenshot 5 — Script showing the five checks and how each one gathers its evidence](screenshots/assignment-11-screenshot-05b.png)
 
 ---
 
 #### Screenshot 6 — `bash -n` and `ls -l` confirming the script is valid and executable
 
-Add your screenshot here.
+![Screenshot 6 — `bash -n` and `ls -l` confirming the script is valid and executable](screenshots/assignment-11-screenshot-06.png)
 
 ---
 
@@ -88,7 +96,9 @@ Run the script against your current, unmodified deployment and confirm it report
 
 #### Screenshot 7 — Script output showing all five checks passing
 
-Add your screenshot here.
+![Screenshot 7 — Script output showing all five checks passing](screenshots/assignment-11-screenshot-07.png)
+
+Baseline result: WARN (exit code 1), PASS 5, FAIL 0. Every check on the live workload passed: the backend Pod was Running and Ready with 0 restarts, and backend-service had a ready backend. The only warning came from the events check. It was caused by historical Warning events from Pods that no longer existed, left over from a cluster restart and my probe-timeout fix. The brief accepts an explained WARN baseline.
 
 ---
 
@@ -102,13 +112,13 @@ Wrap the script in a Claude Code skill restricted to read-only tools (no `Write`
 
 #### Screenshot 8 — `SKILL.md` frontmatter showing the tool restrictions and safety rules
 
-Add your screenshot here.
+![Screenshot 8 — `SKILL.md` frontmatter showing the tool restrictions and safety rules](screenshots/assignment-11-screenshot-08.png)
 
 ---
 
 #### Screenshot 9 — `/k8s-triage` output for the healthy cluster
 
-Add your screenshot here.
+![Screenshot 9 — `/k8s-triage` output for the healthy cluster](screenshots/assignment-11-screenshot-09.png)
 
 ---
 
@@ -122,13 +132,13 @@ Deliberately break your own deployment — an image tag that does not exist, or 
 
 #### Screenshot 10 — The pod in a failed state and the Service showing no Endpoints
 
-Add your screenshot here.
+![Screenshot 10 — The pod in a failed state and the Service showing no Endpoints](screenshots/assignment-11-screenshot-10.png)
 
 ---
 
 #### Screenshot 11 — `/k8s-triage` output showing the diagnosis and the recommended `kubectl` command, not executed by Claude
 
-Add your screenshot here.
+![Screenshot 11 — `/k8s-triage` output showing the diagnosis and the recommended `kubectl` command, not executed by Claude](screenshots/assignment-11-screenshot-11.png)
 
 ---
 
@@ -142,13 +152,15 @@ Review the recommendation, apply the fix yourself, confirm the pod returns to `R
 
 #### Screenshot 12 — Pod back to `Running`/`Ready` and the Service showing Endpoints again
 
-Add your screenshot here.
+![Screenshot 12 — Pod back to `Running`/`Ready` and the Service showing Endpoints again](screenshots/assignment-11-screenshot-12.png)
 
 ---
 
 #### Screenshot 13 — Second `/k8s-triage` run confirming recovery
 
-Add your screenshot here.
+![Screenshot 13 — Second `/k8s-triage` run confirming recovery](screenshots/assignment-11-screenshot-13.png)
+
+Recovery result: WARN (exit code 1), FAIL 0. The remaining warning comes only from the ImagePull events of the deleted broken Pod backend-68474bcbfc-nwlr5. These events expire on their own after about an hour, so no further action was needed.
 
 ---
 
@@ -156,7 +168,16 @@ Add your screenshot here.
 
 Compare this incident to the Nginx incident from Week 3's AI-Assisted Linux Health Check. What stayed the same about the process, and what changed about the evidence you had to gather?
 
-Add your answer here
+**What stayed the same:** The process was the same as the Week 3 Nginx incident. I used a read-only Bash script to gather evidence, a Claude Code skill to analyse the report, and a human to make the fix, then ran the same check again to verify. In both cases Claude was only allowed to read and recommend. It suggested the fix as text, and I reviewed and ran it myself. Both times, running the same script before and after the fix gave me a fair comparison between the broken and the recovered state.
+
+**What changed about the evidence:** In Week 3 everything was on one Linux host, so the evidence was simple and direct: whether the service was running, whether the port was listening, whether the HTTP check passed, disk space, and the service logs. In Kubernetes the evidence is spread across several objects that can disagree with each other:
+- A Pod can be **Running but not Ready**, so status and readiness had to be checked separately.
+- A Service can have **no ready endpoints** even when Pods exist, so I checked the EndpointSlice on its own.
+- There were **no logs at all**, because the container never started. The cause only showed up in Pod **events** (`Failed to pull image ... not found`).
+- Events are **historical**. They stay for about an hour, even across a cluster restart, so the script WARNs on old events from Pods that no longer exist. Claude had to compare event age and Pod names before blaming anything.
+- The fix was also different. In Week 3 I restarted a service directly. Here I changed the **desired state** (the image) and Kubernetes rolled out a new Pod for me.
+
+**Something I learned along the way:** Before the incident, Claude's planning step flagged live probe timeouts. My probes used Kubernetes' default 1-second timeout, which was too short for a small Minikube node, and that was also why the backend had restarts. I raised the timeouts to 5 seconds. I also saw that restarting the backend and MySQL at the same time causes crash loops, because the backend starts before its database is ready.
 
 ---
 
@@ -172,15 +193,15 @@ Your submission must include:
 
 # Completion Checklist
 
-- [ ] Task 1: Healthy baseline confirmed and workspace created (Screenshots 1–2)
-- [ ] Task 2: `CLAUDE.md` safety rules added (Screenshot 3)
-- [ ] Task 3: Read-only five-check plan produced before scripting (Screenshot 4)
-- [ ] Task 4: Triage script built and validated (Screenshots 5–6)
-- [ ] Task 5: Script run against the healthy cluster (Screenshot 7)
-- [ ] Task 6: `/k8s-triage` skill built and run against the healthy baseline (Screenshots 8–9)
-- [ ] Task 7: Incident simulated and correctly diagnosed without being applied (Screenshots 10–11)
-- [ ] Task 8: Recovery applied by the human, verified, and summarized (Screenshots 12–13, Notes)
-- [ ] No kubeconfig, tokens, or cluster credentials exposed
+- [x] Task 1: Healthy baseline confirmed and workspace created (Screenshots 1–2)
+- [x] Task 2: `CLAUDE.md` safety rules added (Screenshot 3)
+- [x] Task 3: Read-only five-check plan produced before scripting (Screenshot 4)
+- [x] Task 4: Triage script built and validated (Screenshots 5–6)
+- [x] Task 5: Script run against the healthy cluster (Screenshot 7)
+- [x] Task 6: `/k8s-triage` skill built and run against the healthy baseline (Screenshots 8–9)
+- [x] Task 7: Incident simulated and correctly diagnosed without being applied (Screenshots 10–11)
+- [x] Task 8: Recovery applied by the human, verified, and summarized (Screenshots 12–13, Notes)
+- [x] No kubeconfig, tokens, or cluster credentials exposed
 
 ---
 
